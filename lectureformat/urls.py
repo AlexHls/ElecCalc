@@ -24,4 +24,6 @@ urlpatterns = [
     ),
     path("calculator_result", views.calculator_result, name="calculator_result"),
     path("privacy", views.privacy, name="privacy"),
+    path("about", views.about, name="about"),
+    path("team", views.team, name="team"),
 ]

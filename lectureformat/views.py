@@ -23,6 +23,12 @@ def home(request):
 def privacy(request):
     return render(request, "privacy.html")    
 
+def about(request):
+    return render(request, "about.html")  
+
+def team(request):
+    return render(request, "team.html")  
+
 
 def calculator_home(request):
     university_list = University.objects.order_by("university_name")

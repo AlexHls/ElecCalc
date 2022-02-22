@@ -1,0 +1,54 @@
+.team {
+    background-image: url(../media/team-background.webp);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  
+    height: 1000px;
+
+    text-align: center;
+}
+.team .Container {
+    padding-top: 45rem;
+    text-align: center;
+    color: white;
+}
+.tContainer {
+    background: transparent;
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-top: 5rem;
+    margin-bottom: 30rem;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+.inline {
+    display: inline-flex;
+    justify-content: space-between;
+    margin-top: 10rem;
+    text-align: center;
+  }
+.teamcard {
+width: 16rem;
+height: 18rem;
+
+display: block;
+
+background: #FFFFFF;
+box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 5px;
+
+margin-left: 5rem;
+}
+.inline .text {
+padding-top: 3rem;
+font-family: Outfit;
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+align-items: center;
+
+color: #9D9D9C;
+}

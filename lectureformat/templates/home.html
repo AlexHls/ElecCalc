@@ -4,44 +4,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static "css\styles.css" %}">
-    <title>Calculator</title>
+    <link rel="stylesheet" href="{% static "css\styles.css" %}"> 
+    <link rel="stylesheet" href="{% static "css\about.css" %}"> 
+    <link rel="stylesheet" href="{% static "css\team.css" %}"> 
 </head>
-<body>
-    <header>
-        <div class="logo">
-            <h1>ElecTUM</h1>
-            <button><a href="/admin">Login</a></button>
-        </div>       
+<div>
+    <header>   
+        <div id="leftmenu" class="links">
+          <div><image src="../static/media/eleclogo.svg" class="item logo" href="/"></image></div>
+          <div><a class="item" href="about">About</a></div>
+          <div><a class="item" href="calculator_home">ElecCalc</a></div>
+          <div><a class="item" href="team">Team</a></div>
+        </div>
+        <div class="rightmenu">
+          <button href="/admin" class="login">Login</button>
+          <button class="calculate">Calculate Now</button>
+        </div>
     </header>
-       
+    {% block content %}
        <main>
-           <div class="Container">
-          
-                <div id="menu" class="col col1">
-                    <a class="item" href="/">Home</a>
-                    <a class="item" href="#">About</a>
-                    <a class="item" href="calculator_home">ElecCalc</a>
-                    <a class="item" href="privacy">Legal Notice</a>
-               </div>
-               {% block content %}
-            <div class="col col2">
-                <h2> Welcome to ElecCalc</h2>
-                <p>This is an early prototpye of the project group ElecTum of the TUM: Junge Akademie.</p>
-                <p> Here you can find our <a href="https://www.ja.tum.de/climate/" target="_blank">Website</a> and learn more about our project.</p>
-                <h2> Or try the calculator yourself by logging in.</h2>
-                <p> If you have any questions, don't hesitate to contact us at climate@ja.tum.de</p>
-            </div>
-            {% endblock %}
-            <div class="col col3">
-               
-              
-            </div>
-           </div>
+         <div class="home">
+        <div class="Container">
+          <h1>Welcome to elecCalc.</h1>
+          <h2>This calculator is an early prototype of our group project elecTUM of TUM:Junge Akademie. Learn more about our project through our website. asdlkhjasdhasd</h2>
+        </div>
+      </div>
         </main>
-                      
+
+
+        <div class="Container">
+          <div class="col col1">
+            <h2> Find out the most sustainable option for your lectures.</h2>
+            <h3>Calculate their energy consumption and take climate action.</h3>
+            <p>With our calculator, you can determine the most energy efficient option for your lectures. If you have any questions, do not hesitate to contact us at electum@ja.tum.de.</p>
+        </div>
+        <div class="col col2 row">
+          <h2> How to use elecCalc step by step.</h2>
+          <h3>[this paragraph explains what steps one can take]</h3>
+          <p>[find out yourself which option is more sustainable]</p>
+      </div>
+    </div>
+
+    <div id="outsider">
+
+      <div class="CContainer">   
+  
+        <div id="button-left" onclick="scrollLft()">
+          <image src="../static/media/left.svg"></image>
+        </div>
+        <div id="button-right" onclick="scrollRight()">
+          <image src="../static/media/right.svg"></image>
+        </div>
+  
+        <div class="history-block C1">
+    
+          <div class="title">Step 1</div>
+          <div class="subtitle">Log in or sign up here.</div>
+          <div class="note">Log in if you already have an account or sign up here.</div>
+          <button>hi</button>
+   
+        </div>
+  
+        <div class="history-block C2">
+   
+            <div class="title">Step 2</div>
+            <div class="subtitle">Choose your university*</div>
+            <div class="note">Note that our calculator is still in an early version and for now can only give reliable data for the Technical University of Munich (TUM).</div>
+  
+        </div>
+  
+        <div class="history-block C2">
+  
+          <div class="title">Step 3</div>
+          <div class="subtitle">Pick the basic parameters for the calculation</div>
+          <div class="note">In this step, you can enter the number of students attending the lecture, the lecture duration, the faculty* and lecture hall*, as well as information regarding the</div>
+          </div>
+  
+        <div class="history-block C2">
+  
+          <div class="title">Step 4</div>
+          <div class="subtitle">Select your sampling mode and additional outputs.</div>
+          <div class="note">Here you can choose between simple or advanced mcmc sampling methods. There is also the option to include further additional parameters such as living situation, type of devices used etc.</div>
+  
+  
+        </div>
+  
+        <div class="history-block C2">
+   
+          <div class="title">Step 5</div>
+          <div class="subtitle">Decide which option you want to test</div>
+          <div class="note">In this final step, you can choose which test option you want to calculate. Here you can select among offline, online streaming, online video-on-demand (VoD), hybrid streaming and hybrid video-on-demand options.</div>
+  
+        </div>
+  
+        <div class="history-block C3">
+  
+          <div class="title">Results</div>
+          <div class="subtitle">Check out your final results.</div>
+          <div class="note">elecCalc calculates the energy consumption of your lecture according to the given parameters and gives a recommendation about the optimal lecture mode in your case. Now you can make an informed decision. Do you want to learn more on how we calculate the best option?</div>
+      
+        </div>
        
-     
+      </div>   
+    </div>
+    
+
+
+
+  <div class="OContainer">
+    <div>
+    <h1>These are the parameters that go into the calculation.</h1>
+  </div>
+  <div class="inline">
+    <div class="paramcard">
+      <image src="../static/media/bike.svg"></image>
+      <div class="text">mobility</div>
+    </div>
+    <div class="paramcard">
+      <image src="../static/media/elecHouse.svg"></image>
+      <div class="text">household energy consumption</div>
+    </div>
+    <div class="paramcard">
+      <image src="../static/media/lecture.svg"></image>
+      <div class="text">lecture halls</div>
+    </div>
+    <div class="paramcard">
+      <image src="../static/media/streaming.svg"></image>
+      <div class="text">streaming platforms</div>
+    </div>
+    <div class="paramcard">
+      <image src="../static/media/devices.svg"></image>
+      <div class="text">devices</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="EContainer">
+
+  </div>
+ 
+       
+        {% endblock %}
             <div class="wrapper">
                 <img src="#" alt="">
                 <div class="cookie-content">
@@ -52,6 +155,7 @@
                   </div>
                 </div>
               </div>
+
               <script>
                 const cookieBox = document.querySelector(".wrapper"),
                 acceptBtn = cookieBox.querySelector("button");
@@ -65,11 +169,48 @@
                 }
                 let checkCookie = document.cookie.indexOf("Cookie");
                 checkCookie != -1 ? cookieBox.classList.add("hide") : cookieBox.classList.remove("hide"); 
+
+                const outsider = document.getElementById('outsider');
+                const distance = 800;
+
+                function scrollLft() {
+                  outsider.scrollBy({
+                    left: -distance,
+                    behavior: 'smooth'
+                  });
+                }
+
+                function scrollRight() {
+                  outsider.scrollBy({
+                    left: distance,
+                    behavior: 'smooth'
+                  });
+                }
+                
               </script>
 
    
     <footer>
+      <div class="">
+        
+        <a class="item" href="about">About</a>
+        <a class="itemf" href="calculator_home">ElecCalc</a>
+        <a class="itemf" href="team">Team</a>
+        <image src="../static/media/eleclogo.svg" class="itemf logo" href="/"></image>
+
+      </div>
+      <div class="footerline"></div>
+      <div class="bottommenu">
+        <div>Legal Notice</div>
+        <a>German</a><span> |</span>
+        <a>English</a>
+        <div>Privacy Policy</div>
+        <a>German</a><span> |</span>
+        <a>English</a>
+        <div>
         &copy; 2022 | ElecTUM
+      </div>
+        
     </footer>
 </body>
 

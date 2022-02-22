@@ -1,0 +1,40 @@
+.about {
+    background: transparent;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  
+    height: 1000px;
+    padding-top: 22rem;
+
+    text-align: center;
+}
+.about2 {
+    background: #A9BA88;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  
+    height: 1000px;
+    padding-top: 15rem;
+
+    text-align: center;
+}
+.about3 {
+    background: transparent;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  
+    height: 1000px;
+    padding-top: 15rem;
+
+    text-align: center;
+}
+.earth {
+    height: auto;
+    width: 700px;
+
+    margin-top: -12rem;
+
+}
