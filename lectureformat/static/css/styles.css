@@ -132,7 +132,7 @@ color: #F5F5F5;
 
 }
 .home {
-  background-image: url(../media/body-background.webp);
+  background-image: url(../media/home/body-background.webp);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
