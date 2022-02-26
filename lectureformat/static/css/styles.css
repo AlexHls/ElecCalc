@@ -312,12 +312,12 @@ h6 {
   }
 }
 @media (min-width: 576px) {
-  .Container, .Subcontainer {
+  .Container, .Subcontainer, .elecContainer {
       max-width: 540px;
 }
 }
 @media (min-width: 768px) {
-  .Container, .Subcontainer {
+  .Container, .Subcontainer, .elecContainer {
       max-width: 720px;
 }
 
@@ -326,12 +326,12 @@ h6 {
 }
 }
 @media (min-width: 992px) {
-  .Container, .Subcontainer {
+  .Container, .Subcontainer, .elecContainer {
       max-width: 960px;
 }
 }
 @media (min-width: 1200px) {
-  .Container, .Subcontainer {
+  .Container, .Subcontainer, .elecContainer {
       max-width: 1400px;
 }
 

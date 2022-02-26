@@ -1,25 +1,43 @@
 {% extends 'home.html' %}
 
 {% block content %}
-<div class="col col2">
-    <h1>ElecCalc - Lecturer mode</h1>
-<p> Welcome to the calculator. This is the homepage. UNDER CONSTRUCTION </p>
-<form action="calculator_base_selection" method="POST">
-    {% csrf_token %}
+<div id="calculate">
+        <div class="Container">
+            <div class="col col1">
+                <h1>ElecCalc</h1>
+                <h2>Lecturer mode</h2>
+                <h1>Welcome to the calculator.</h1>
+                <h2> This webpage is under construction.</h2>
+                <h3> Welcome to the calculator. This is the homepage.  </h3>
+                <h2>*UNDER CONSTRUCTION</h2>
+            </div>
 
-    {% if university_list %}
-        <label for="universitys">Choose a university:</label>
-        <select id="universitys" name="universitys">
-            {% for university in university_list %}
-                <option value={{ university.id }}>{{ university.university_name }}</option>
-            {% endfor %}
-        </select>
-        <br><br>
-    {% else %}
-        <p>No universities are available.</p><br><br>
-    {% endif %}
-     <input type="submit" value="Next">
-</form>
+            <div class="col col2">
+                <h1>Choose your University</h1>
+                <form action="calculator_base_selection" method="POST">
+                    {% csrf_token %}
+                
+                    {% if university_list %}
+                        <label for="universitys"></label>
+                        <select id="universitys" name="universitys" class="">
+                            {% for university in university_list %}
+                                <option value={{ university.id }}>{{ university.university_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <br><br>
+                    {% else %}
+                        <p>No universities are available.</p><br><br>
+                    {% endif %}
+
+                    <input class="submit" type="submit" value="Next">
+            </div>
+
+        </div>
+
+
+            
+        </form>
+        </div>
+    </div>
 </div>
-
 {% endblock %}
