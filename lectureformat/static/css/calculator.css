@@ -42,8 +42,75 @@
 }
 .Cinline {
   display: inline-flex;
-  justify-content: space-between;
+
   text-align: center;
   height: auto;
   width: 100%;
 }
+
+.anyselection {
+  display: block;
+  width: 96%;
+  margin: 2%;
+  margin-right: 2%;
+  padding: 3%;
+  height: auto;
+  text-align: center;
+  align-content: center;
+
+  background: white;
+  border: 1px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 15px;
+
+}
+
+input[type=radio], input[type=checkbox] {
+  display:none;
+}
+
+input[type=radio] + label {
+  width: 100%;
+
+  margin: 2%;
+
+  line-height: normal;
+  padding: 3%;
+
+  background: white;
+  border: 1px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 15px;
+
+
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  
+}
+input[type=checkbox] + label {
+  margin: 2%;
+  padding: 3% 20% 3% 20%;
+
+  line-height: normal;
+
+  font-size: 14px;
+  color: #333;
+  text-align: left;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+input[type=radio]:checked + label{
+  text-decoration: overline;
+  text-decoration-thickness: 0.5rem;
+}
+
+input[type=checkbox]:checked + label{
+  text-decoration: overline;
+  text-decoration-thickness: 0.5rem;
+  text-decoration-style: round;
+}
+
