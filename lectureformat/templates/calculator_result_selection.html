@@ -2,29 +2,68 @@
 
 {% block content %}
 
-<h1>elecCalc - Lecturer mode</h1>
-<input type=button value="Previous Step" onClick="javascript:history.go(-1);">
-<p> You can now select what you want to calculate.</p>
-<p> So far you have selected the following parameters: </p>
-<p> University: {{ university }} </p>
-<p> Number of students {{ num }} </p>
-<p> Faculty: {{ faculty }} </p>
-<p> Lecture hall: {{ lecture_hall }} </p>
-<p> Streaming service: {{ streaming }} </p>
-<p> VoD service: {{ vod }} </p>
-<p> You selected the following additional options: </p>
-<p> Sampling: {{ sampling }} </p>
-<p> Test options: {{ options }} </p>
-<p> </p>
-<p> Please select the result you want to calculate: </p> 
-<form action="calculator_result" method="POST">
-    {% csrf_token %}
+<div id="calculate">
+    <div class="Container">
+        <div class="col col1">
+            <h1>ElecCalc</h1>
+            <h2>Lecturer mode</h2>
+            <p> So far you have selected the following parameters: </p>
+            <p> University: {{ university }} </p>
+            <p> Number of students: {{ num }} </p>
+            <p> Faculty: {{ faculty }} </p>
+            <p> Lecture hall: {{ lecture_hall }} </p>
+            <p> Streaming service: {{ streaming }} </p>
+            <p> VoD service: {{ vod }} </p>
+            <p> You selected the following additional options: </p>
+            <p> Sampling: {{ sampling }} </p>
+            <p> Test options: {{ options }} </p>
+                    <h2> This webpage is under construction.</h2>
+            <h2>*UNDER CONSTRUCTION</h2>
+        </div>
     
-    <input type="submit" name="action" value="Offline">
-	<input type="submit" name="action" value="Online - Streaming">
-    <input type="submit" name="action" value="Online - VoD">
-    <input type="submit" name="action" value="Hybrid - Streaming">
-    <input type="submit" name="action" value="Hybrid - VoD">
+        <div class="col col2">
+            <h1>Decide which option you want to test.</h1> 
 
-</form>
+            <p> Please select the result you want to calculate: </p> 
+                <form action="calculator_result" method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="Cblock">
+                        <div>
+                            <input class="anyselection" type="submit" name="action" value="Offline">
+                        </div>
+                    </div>
+
+                    <div class="Cblock">
+                        <div>
+                            <input class="anyselection" type="submit" name="action" value="Online - Streaming">
+                        </div>
+                    </div>
+
+                    <div class="Cblock">
+                        <div>
+                            <input class="anyselection" type="submit" name="action" value="Online - VoD">
+                        </div>
+                    </div>
+
+                    <div class="Cblock">
+                        <div>
+                            <input class="anyselection" type="submit" name="action" value="Hybrid - Streaming">
+                        </div>
+                    </div>
+                   
+                    <div class="Cblock">
+                        <div >
+                            <input class="anyselection" type="submit" name="action" value="Hybrid - VoD">
+                    </div>
+
+            
+
+                </form>
+        </div>
+    
+    </div>
+    </div>
+
+
 {% endblock %}

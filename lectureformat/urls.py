@@ -23,7 +23,10 @@ urlpatterns = [
         name="calculator_result_selection",
     ),
     path("calculator_result", views.calculator_result, name="calculator_result"),
-    path("privacy", views.privacy, name="privacy"),
     path("about", views.about, name="about"),
     path("team", views.team, name="team"),
+    path("rechtshinweise", views.rechtshinweise, name="rechtshinweise"),
+    path("legalnotice", views.legalnotice, name="legalnotice"),
+    path("datenschutz", views.datenschutz, name="datenschutz"),
+    path("privacy", views.privacy, name="privacy"),
 ]
