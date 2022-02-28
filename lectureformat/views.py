@@ -20,11 +20,29 @@ from .models import *
 
 # Create your views here.
 def home(request):
-    return render(request, "home.html")
+    return render(request, "home.html") 
+
+def about(request):
+    return render(request, "about.html")  
+
+def team(request):
+    return render(request, "team.html")  
+
+def rechtshinweise(request):
+    return render(request, "rechtshinweise.html")   
+
+def legalnotice(request):
+    return render(request, "legalnotice.html")   
+
+def datenschutz(request):
+    return render(request, "datenschutz.html")   
 
 
 def privacy(request):
-    return render(request, "privacy.html")
+    return render(request, "privacy.html")   
+
+def no404(request):
+    return render(request, "no404.html")
 
 
 def calculator_home(request):

@@ -1,0 +1,60 @@
+.team {
+    background-image: url(../media/team/team-background.webp);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  
+    height: 1000px;
+
+    text-align: center;
+}
+.team .Container {
+    padding-top: 44rem;
+    text-align: center;
+    color: white;
+}
+.inline {
+    display: inline-flex;
+    justify-content: space-between;
+    margin-top: 8rem;
+    text-align: center;
+
+  }
+.teamcard {
+width: fit-content;
+height: fit-content;
+
+display: block;
+
+background: #FFFFFF;
+box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 7px;
+padding-bottom: 2rem;
+
+margin-left: 5rem;
+overflow: hidden;
+}
+.inline .text {
+padding-top: 2rem;
+font-family: Outfit;
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+align-items: center;
+
+color: #9D9D9C;
+}
+.profcard {
+    width: 16rem;
+    height: fit-content;
+    
+    display: block;
+    
+    background: #FFFFFF;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    
+    margin-left: 5rem;
+    overflow: hidden;
+    padding-bottom: 2rem;
+}

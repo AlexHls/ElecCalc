@@ -1,62 +1,90 @@
 {% extends 'home.html' %}
 
 {% block content %}
+<div id="calculate">
+    <div class="Container2">
+        <div class="Card2">
+        <div class="col col1">
+            <div class="title"><h1>ElecCalc</h1></div>
+            <div class="title" style="margin-top: -4rem;"><h2>Lecturer mode</h2></div>
+           
+            <div class="sep"><h2>Welcome to the calculator.</h2></div>
+            <div style="color: #2C7DA0;"><h3> This webpage is under construction.</h3></div>
+            
+        </div>
 
-<h1>elecCalc - Lecturer mode</h1>
-<input type=button value="Previous Step" onClick="javascript:history.go(-1);">
-<p> You can now select some basic parameters for {{ university.university_name }} </p>
-<form action="calculator_option_selection" method="POST">
-    {% csrf_token %}
+        <div class="col col2">
+            <h2>You can now select some basic parameters for {{ university.university_name }} </h2>
+            <form action="calculator_option_selection" method="POST">
+                {% csrf_token %}
+            
+                Enter number of students attending lecture: <input class="input" type="text" name="num_stud"><br><br>
+                Lecture duration (minutes): <input class="input" type="text" name="time"><br><br>
+                {% if faculty_list %}
+                    <label for="facultys">Choose a faculty:</label>
+                    <select id="facultys" name="facultys">
+                        {% for faculty in faculty_list %}
+                            <option value={{ faculty.id }}>{{ faculty.faculty_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <br><br>
+                {% else %}
+                    <p>No faculties are available.</p><br><br>
+                {% endif %}
+                {% if lecture_hall_list %}
+                    <label for="lecture_halls">Choose a lecture hall:</label>
+                    <select id="lecture_halls" name="lecture_halls">
+                        <option value="NONE"> None </option>
+                        {% for hall in lecture_hall_list %}
+                            <option value={{ hall.id }}>{{ hall.hall_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <br><br>
+                {% else %}
+                    <p>No lecture halls are available.</p><br><br>
+                {% endif %}
+                {% if streaming_list %}
+                    <label for="streaming">Choose a streaming service:</label>
+                    <select id="streaming" name="streaming">
+                        <option value="NONE"> None </option>
+                        {% for streaming in streaming_list %}
+                            <option value={{ streaming.id }}>{{ streaming.streaming_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <br><br>
+                {% else %}
+                    <p>No streaming services are available.</p><br><br>
+                {% endif %}
+                {% if vod_list %}
+                    <label for="vod">Choose a Video-On-Demand service:</label>
+                    <select id="vod" name="vod">
+                        <option value="NONE"> None </option>
+                        {% for vod in vod_list %}
+                            <option value={{ vod.id }}>{{ vod.vod_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <br><br>
+                {% else %}
+                    <p>No VoD services are available.</p><br><br>
+                {% endif %}
+                <div class="Cinline">
+                    <input class="input" type="button" value="Back" onclick="history.back()">
+                    <input class="submit" type="submit" value="Next">
+                </div>
+                
+            </form>
+        </div>
 
-    Enter number of students attending lecture: <input type="text" name="num_stud"><br><br>
-	Lecture duration (minutes): <input type="text" name="time"><br><br>
-    {% if faculty_list %}
-        <label for="facultys">Choose a faculty:</label>
-        <select id="facultys" name="facultys">
-            {% for faculty in faculty_list %}
-                <option value={{ faculty.id }}>{{ faculty.faculty_name }}</option>
-            {% endfor %}
-        </select>
-        <br><br>
-    {% else %}
-        <p>No faculties are available.</p><br><br>
-    {% endif %}
-    {% if lecture_hall_list %}
-        <label for="lecture_halls">Choose a lecture hall:</label>
-        <select id="lecture_halls" name="lecture_halls">
-		    <option value="NONE"> None </option>
-            {% for hall in lecture_hall_list %}
-                <option value={{ hall.id }}>{{ hall.hall_name }}</option>
-            {% endfor %}
-        </select>
-        <br><br>
-    {% else %}
-        <p>No lecture halls are available.</p><br><br>
-    {% endif %}
-    {% if streaming_list %}
-        <label for="streaming">Choose a streaming service:</label>
-        <select id="streaming" name="streaming">
-		    <option value="NONE"> None </option>
-            {% for streaming in streaming_list %}
-                <option value={{ streaming.id }}>{{ streaming.streaming_name }}</option>
-            {% endfor %}
-        </select>
-        <br><br>
-    {% else %}
-        <p>No streaming services are available.</p><br><br>
-    {% endif %}
-    {% if vod_list %}
-        <label for="vod">Choose a Video-On-Demand service:</label>
-        <select id="vod" name="vod">
-		    <option value="NONE"> None </option>
-            {% for vod in vod_list %}
-                <option value={{ vod.id }}>{{ vod.vod_name }}</option>
-            {% endfor %}
-        </select>
-        <br><br>
-    {% else %}
-        <p>No VoD services are available.</p><br><br>
-    {% endif %}
-    <input type="submit" value="Next">
-</form>
+    </div>
+
+
+        
+    </form>
+    </div>
+    </div>
+</div>
+
+</div>
+
+
 {% endblock %}
