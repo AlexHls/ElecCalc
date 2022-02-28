@@ -142,7 +142,7 @@ height: auto;
 text-align: center;
 align-content: center;
 
-background: white;
+background: #F5F5F5;
 border: 1px solid #C4C4C4;
 box-sizing: border-box;
 border-radius: 15px;
@@ -160,19 +160,25 @@ font-style: normal;
 font-weight: 300;
 width: 100%;
 
-margin-top: 2%;
+margin: 2%;
 
 line-height: normal;
 padding: 3%;
+padding-top: 2rem;
+padding-bottom: 2rem;
 
-background: white;
-border: 1px solid #C4C4C4;
+background: #F5F5F5;
+border: 2px solid #C4C4C4;
 box-sizing: border-box;
 border-radius: 15px;
 
+font-family: Outfit;
+font-style: normal;
+font-weight: 500;
+
 
 font-size: 14px;
-color: #333;
+color: #2C7DA0 ;
 text-align: center;
 vertical-align: middle;
 cursor: pointer;
@@ -190,6 +196,7 @@ padding: 0% 20% 0% 20%;
 
 line-height: normal;
 
+background: #F5F5F5;
 font-size: 14px;
 color: #333;
 text-align: left;

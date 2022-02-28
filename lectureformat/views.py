@@ -38,6 +38,9 @@ def datenschutz(request):
 def privacy(request):
     return render(request, "privacy.html")   
 
+def no404(request):
+    return render(request, "no404.html")   
+
 
 def calculator_home(request):
     university_list = University.objects.order_by("university_name")
