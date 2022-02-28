@@ -17,13 +17,14 @@
         <div id="leftmenu" class="links">
           <div>
             <a href="/"><image src="../static/media/home/eleclogo.svg" class="item logo" ></image></a></div>
+          <div><a class="item" href="/">Home</a></div>
           <div><a class="item" href="about">About</a></div>
           <div><a class="item" href="calculator_home">ElecCalc</a></div>
           <div><a class="item" href="team">Team</a></div>
         </div>
         <div>
-          <button href="/admin" class="login">Login</button>
-          <button href="no404" class="calculate">Calculate Now</button>
+          <button href="admin" onclick="location.href='admin';" class="login">Login</button>
+          <button href="calculator_home" onclick="location.href='calculator_home';" class="calculate">Calculate Now</button>
         </div>
     </header>
     {% block content %}
@@ -71,9 +72,10 @@
         <div class="history-block C1">
     
           <div class="title">Step 1</div>
-          <div class="subtitle">Log in or sign up <a class="subtitle" href="" style="color: #2C7DA0;">here.</a></div>
-          <div class="note">Log in if you already have an account or sign up <a class="" href="note"><b>here.</b></a></div>
-          <button class="sep transp"><image src="../static/media/home/login.svg"></image></button>
+          <div class="subtitle">Log in or sign up <a class="subtitle" href="admin" style="color: #2C7DA0;">here.</a></div>
+          <div class="note">[This is currently under construction and the user system does not yet work. You can go ahead and skip this step.]</a></div>
+          <div class="note">Log in if you already have an account or sign up <a class="" href="admin"><b>here.</b></a></div>
+          <button onclick="location.href='admin'" class="sep transp"><image src="../static/media/home/login.svg"></image></button>
    
         </div>
   
