@@ -3,10 +3,11 @@
 {% block content %}
 
 <div id="calculate">
-<div class="Container">
+<div class="Container2">
+	<div class="Card3">
 	<div class="col col1">
-		<h1>ElecCalc</h1>
-		<h2>Lecturer mode</h2>
+		<div class="title"><h1>ElecCalc</h1></div>
+                <div class="title" style="margin-top: -4rem;"><h2>Lecturer mode</h2></div>
 		<p> So far you have selected the following parameters: </p>
 		<p> University: {{ university }} </p>
 		<p> Number of students: {{ num }} </p>
@@ -14,12 +15,12 @@
 		<p> Lecture hall: {{ lecture_hall }} </p>
 		<p> Streaming service: {{ streaming }} </p>
 		<p> VoD service: {{ vod }} </p>
-				<h2> This webpage is under construction.</h2>
-		<h2>*UNDER CONSTRUCTION</h2>
+		<div class="sep" style="color: #2C7DA0;"><h3> This webpage is under construction.</h3></div>
+
 	</div>
 
 	<div class="col col2">
-		<h1> Select sampling method:</h1> 
+		<h2> Select sampling method:</h2> 
 		<form action="calculator_result_selection" method="POST">
 			{% csrf_token %}
 			Choose a samling mode: <br>
@@ -30,7 +31,7 @@
 			<label for="sampling_mcmc">Advanced MCMC sampling</label>
 		</div>
 
-			<h1>Additional outputs selection:</h1>
+			<h2>Additional outputs selection:</h2>
 			<div class="Cblock">
 			<div class="anyselection colorDiv">
 				<input type="checkbox" id="random_living" name="random_living" value="random_living">
@@ -69,6 +70,7 @@
 		</form>
 	</div>
 
+</div>
 </div>
 </div>
 </div>

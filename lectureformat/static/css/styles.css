@@ -10,7 +10,8 @@ scroll-behavior: smooth;
 }
 html{background:#353535;}
 ::selection{
-  color: #00CE9D;
+  color: white;
+  background: #A9BA88;
 }
 header {
   height: 120px;
@@ -35,9 +36,6 @@ header {
   display: inline-flex;
   align-items: center;
 }
-#rightmenu {
-  display: flex;
-}
 .login {
   width: 10rem;
   height: 3rem;
@@ -46,6 +44,12 @@ header {
   border-radius: 6px;
   color: #F5F5F5;
   background: transparent;
+
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 500;
+
+  margin-right: 1.0rem;
 
   font-size: 1rem;
   cursor: pointer;
@@ -94,11 +98,22 @@ footer{
   color: black;
   background: #A9BA88;
 
+  color: #F5F5F5;
+
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 500;
+
+
   font-size: 1rem;
   cursor: pointer;
 }
+.login:hover, .calculate:hover {
+  transform: scale(1.1);
+  transition: all .2s ease-in-out;
+}
 
-a {
+header a {
   color: #F5F5F5;
   opacity: 0.5;
 }
@@ -124,7 +139,7 @@ header .item {
   margin-bottom: 2rem;
 }
 .itemf {
-  margin-left: 13.6rem;
+  margin-left: 14rem;
 }
 body {
   font-family: Outfit;
@@ -153,8 +168,11 @@ color: #F5F5F5;
 
   height: 1000px;
 }
+.home h1 {
+  padding-bottom: 3rem;
+}
 main .Container {
-  padding-top: 45rem;
+  padding-top: 44rem;
   text-align: center;
 }
 iframe[seamless] {
@@ -164,25 +182,31 @@ a {
   text-decoration: none;
   color: inherit;
   background-color: transparent;
+  font-size: 1.0rem;
+  font-weight: 300;
 }
 ul,
 li,
 p {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  font-size: 1.0rem;
+  font-weight: 300;
 }
 h1 {
-  font-size: 2.4rem;
+  font-size: 4.2rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
 h2 {
-  font-size: 2rem;
+  font-size: 3.2rem;
+  font-weight: 300;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
 h3 {
   font-size: 1.6rem;
+  font-weight: 300;
 }
 h4 {
   font-size: 1.6rem;
@@ -221,8 +245,8 @@ h6 {
   width: 100%;
   height: 30rem;
   padding-right: 1rem;
-  padding-top: 10rem;
-  margin-top: 40rem;
+  padding-top: 1rem;
+  margin-top: 30rem;
   margin-top: 2rem;
   margin-right: auto;
   margin-left: auto;
@@ -233,7 +257,7 @@ h6 {
   background: transparent;
   padding-right: 1rem;
   padding-left: 10rem;
-  padding-top: 5rem;
+  padding-top: 10rem;
   margin-right: auto;
   margin-left: auto;
 
@@ -247,11 +271,49 @@ h6 {
   height: 5rem;
   padding-right: 1rem;
   padding-left: 1rem;
+  padding-top: 2rem;
+  margin-bottom: 15rem;
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+}
+.tContainer {
+  background: transparent;
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
   padding-top: 5rem;
   margin-bottom: 10rem;
   margin-right: auto;
   margin-left: auto;
+  text-align: center;
+}
+.Container2 {
+  background: transparent;
+  width: 100%;
+  height: fit-content;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-top: 8rem;
+  margin-bottom: 10rem;
+  margin-right: auto;
+  margin-left: auto;
   align-items: center;
+}  
+.Container3 {
+  background: transparent;
+  width: 100%;
+  height: 700px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-top: 8rem;
+  margin-bottom: 44rem;
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+}  
+.sep {
+  margin-top: 2rem;
 }
 /* --------------------------------------Columns */
 .col{
@@ -266,13 +328,27 @@ h6 {
 }
 .col1{ 
   float: left;
-  width: 45%;
+  width: 48%;
   height: 20rem;
   background: transparent;
   text-align: left;
 
   margin-right: 1rem;
 
+  
+
+}
+.col1button {
+  margin-top: 4rem ;
+  background: #DDBEA9;
+  border: 1px solid #FFFFFF;
+  box-sizing: border-box;
+  border-radius: 6px;
+
+  width: 150px;
+  height: 50px;
+
+  color: white;
 }
 .col1 .item {
   margin-top: 2rem;
@@ -283,15 +359,12 @@ h6 {
   display: block;
   color: #353535;
 }
-.col1 ::selection {
-  color: #fafafa;
-}
 .col a:hover {
   text-shadow: 0px 0px 4px rgba(250, 250, 250, 0.5);
 }
 .col2{ 
   float: left;
-  width: 45%;
+  width: 40%;
   height: 20rem;
   background: transparent;
   text-align: left;
@@ -326,12 +399,12 @@ h6 {
   }
 }
 @media (min-width: 576px) {
-  .Container, .Subcontainer, .elecContainer, .PContainer {
+  .Container, .Subcontainer, .elecContainer, .PContainer, .tContainer, .Container2, .Container3 {
       max-width: 540px;
 }
 }
 @media (min-width: 768px) {
-  .Container, .Subcontainer, .elecContainer, .PContainer {
+  .Container, .Subcontainer, .elecContainer, .PContainer, .tContainer, .Container2, .Container3 {
       max-width: 720px;
 }
 
@@ -340,41 +413,43 @@ h6 {
 }
 }
 @media (min-width: 992px) {
-  .Container, .Subcontainer, .elecContainer, .PContainer {
+  .Container, .Subcontainer, .elecContainer, .PContainer, .tContainer, .Container2, .Container3 {
       max-width: 960px;
 }
 }
 @media (min-width: 1200px) {
-  .Container, .Subcontainer, .elecContainer, .PContainer {
+  .Container, .Subcontainer, .elecContainer, .PContainer, .tContainer, .Container2, .Container3 {
       max-width: 1400px;
 }
 
 /* -----------------------------------------Consent */
 .wrapper{
-  left: 40%;
-  right: 30%;
-  top: 70%;
+  top:80%;
   position: fixed;
   display: flex;
-  max-width: 900px;
+  width: 100%;
   background: #494949;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 2px 4px 4px #000000;
+  padding: 2%;
+  box-shadow: 0px 2px 2px #000000;
   text-align: center;
   align-items: center;
+  z-index: 999;
 }
 .wrapper.hide{
   opacity: 0;
   pointer-events: none;
   transform: scale(0.8);
 }
+.cookie-content{
+  text-align: center;
+  width: 100%;
+}
 .cookie-content p{
   color: #fafafa;
   margin: 5px 0 20px 0;
 }
 .cookie-content .buttons{
-  display: flex;
+
   align-items: center;
   justify-content: center;
 }
@@ -439,6 +514,11 @@ h6 {
   border-radius: 15px;
 
 }
+.transp {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
 .C2{ 
 
   padding: 1%;
@@ -491,6 +571,15 @@ h6 {
   margin-bottom: 4rem;
   
   color: #CB997E;
+}
+.OContainer h1 {
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 5rem;
+
+  
+  color: white;
 }
 .subtitle {
   font-family: Outfit;
@@ -548,7 +637,7 @@ h6 {
 .inline {
   display: inline-flex;
   justify-content: space-between;
-  margin-top: 10rem;
+  margin-top: 5rem;
   text-align: center;
 }
 .paramcard {
@@ -569,8 +658,6 @@ h6 {
   padding-top: 3rem;
   font-family: Outfit;
   font-style: normal;
-  font-weight: 300;
-  font-size: 14px;
   align-items: center;
   
   color: #9D9D9C;

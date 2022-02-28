@@ -9,26 +9,16 @@
     text-align: center;
 }
 .team .Container {
-    padding-top: 45rem;
+    padding-top: 44rem;
     text-align: center;
     color: white;
-}
-.tContainer {
-    background: transparent;
-    width: 100%;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    padding-top: 5rem;
-    margin-bottom: 30rem;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
 }
 .inline {
     display: inline-flex;
     justify-content: space-between;
-    margin-top: 10rem;
+    margin-top: 8rem;
     text-align: center;
+
   }
 .teamcard {
 width: fit-content;
@@ -39,12 +29,13 @@ display: block;
 background: #FFFFFF;
 box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 7px;
+padding-bottom: 2rem;
 
 margin-left: 5rem;
 overflow: hidden;
 }
 .inline .text {
-padding-top: 3rem;
+padding-top: 2rem;
 font-family: Outfit;
 font-style: normal;
 font-weight: 300;
@@ -65,4 +56,5 @@ color: #9D9D9C;
     
     margin-left: 5rem;
     overflow: hidden;
+    padding-bottom: 2rem;
 }
