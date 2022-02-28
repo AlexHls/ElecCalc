@@ -28,7 +28,7 @@ try:
         SECRET_KEY = os.environ["SECRET_KEY"]
         DEBUG = False
         # TODO REMOVE IP
-        ALLOWED_HOSTS = ["138.246.225.146", "localhost"]
+        ALLOWED_HOSTS = ["electum.ja.tum.de", "localhost"]
 
         # Database
         # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

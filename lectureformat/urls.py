@@ -28,6 +28,7 @@ urlpatterns = [
     path("rechtshinweise", views.rechtshinweise, name="rechtshinweise"),
     path("legalnotice", views.legalnotice, name="legalnotice"),
     path("datenschutz", views.datenschutz, name="datenschutz"),
+    path("download_data", views.download_data, name="download_data"),
     path("privacy", views.privacy, name="privacy"),
     path("no404", views.no404, name="no404"),
 ]

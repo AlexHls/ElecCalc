@@ -25,7 +25,11 @@
 <br>
 {% for fig in debug_figures%}
     <div> {{ fig|safe }} </div>
+    <br>
 {% endfor %}
+<form action={% url 'download_data' %}>
+    <input type="submit" value="Download result" />
+</form>
 <br>
 <form action="calculator_home" method="POST">
     {% csrf_token %} 

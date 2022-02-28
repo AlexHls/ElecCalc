@@ -12,6 +12,8 @@ import urllib, base64
 from PIL import Image
 import numpy as np
 import lectureformat.scripts as s
+import io
+from zipfile import ZipFile
 
 from .lecture import *
 from .models import *
@@ -35,11 +37,12 @@ def legalnotice(request):
 def datenschutz(request):
     return render(request, "datenschutz.html")   
 
+
 def privacy(request):
     return render(request, "privacy.html")   
 
 def no404(request):
-    return render(request, "no404.html")   
+    return render(request, "no404.html")
 
 
 def calculator_home(request):
@@ -130,7 +133,15 @@ def calculator_option_selection(request):
     return HttpResponse(template.render(context, request))
 
 
-options = ["random_living", "random_devices", "option1"]
+options = [
+    "random_living",
+    "random_devices",
+    "beamer",
+    "logplot",
+    "notransport",
+    "showseating",
+    "option1",
+]
 
 
 def calculator_result_selection(request):
@@ -261,8 +272,96 @@ def calculator_result(request):
     if lecture.figure is not None:
         context["figure"] = lecture.figure
 
+    request.session["data"] = lecture.contribs
+    request.session["data_std"] = lecture.contribs_std
+    request.session["figure"] = lecture.figure
+
     context["debug_figures"] = []
     for key in list(lecture.debug_figures.keys()):
         context["debug_figures"].append(lecture.debug_figures[key])
 
     return render(request, "calculator_result.html", context)
+
+
+def download_data(request):
+
+    contribs = request.session.get("data")
+    contribs_std = request.session.get("data_std")
+    figure = request.session.get("figure")
+
+    # Split dataframes in online and offline contributions
+    # Online
+    contribs_online = {
+        "Streaming": contribs["Streaming"],
+        "VoD": contribs["VoD"],
+        "Living": contribs["Living"],
+        "Devices": [],
+    }
+    contribs_online_std = {
+        "Streaming": contribs_std["Streaming"],
+        "VoD": contribs_std["VoD"],
+        "Living": contribs_std["Living"],
+        "Devices": [],
+    }
+    # Offline
+    contribs_offline = {
+        "Lecture hall": contribs["Lecture hall"],
+        "Transportation": contribs["Transportation"],
+        "Devices": [],
+    }
+    contribs_offline_std = {
+        "Lecture hall": contribs_std["Lecture hall"],
+        "Transportation": contribs_std["Transportation"],
+        "Devices": [],
+    }
+    # Split devices
+    for i in range(0, len(contribs["Devices"]), 2):
+        contribs_offline["Devices"].append(contribs["Devices"][i])
+        contribs_offline_std["Devices"].append(contribs_std["Devices"][i])
+        contribs_online["Devices"].append(contribs["Devices"][i + 1])
+        contribs_online_std["Devices"].append(contribs_std["Devices"][i + 1])
+
+    dev = [
+        contribs["Devices"][i] + contribs["Devices"][i + 1]
+        for i in range(0, len(contribs["Devices"]), 2)
+    ]
+    dev_std = [
+        contribs_std["Devices"][i] + contribs_std["Devices"][i + 1]
+        for i in range(0, len(contribs_std["Devices"]), 2)
+    ]
+
+    contribs["Devices"] = dev
+    contribs_std["Devices"] = dev_std
+
+    in_memory = io.BytesIO()
+    zf = ZipFile(in_memory, "a")
+
+    df = pd.DataFrame({k: pd.Series(v) for k, v in contribs.items()})
+    df_std = pd.DataFrame({k: pd.Series(v) for k, v in contribs_std.items()})
+
+    df_online = pd.DataFrame({k: pd.Series(v) for k, v in contribs_online.items()})
+    df_online_std = pd.DataFrame(
+        {k: pd.Series(v) for k, v in contribs_online_std.items()}
+    )
+    df_offline = pd.DataFrame({k: pd.Series(v) for k, v in contribs_offline.items()})
+    df_offline_std = pd.DataFrame(
+        {k: pd.Series(v) for k, v in contribs_offline_std.items()}
+    )
+
+    zf.writestr("consumption_results.csv", df.to_string())
+    zf.writestr("consumption_stdev.csv", df_std.to_string())
+    zf.writestr("consumption_online.csv", df_online.to_string())
+    zf.writestr("consumption_online_stdev.csv", df_online_std.to_string())
+    zf.writestr("consumption_offline.csv", df_offline.to_string())
+    zf.writestr("consumption_offline_stdev.csv", df_offline_std.to_string())
+    zf.writestr("consumption_figure.svg", figure)
+
+    # fix for Linux zip files read in Windows
+    for file in zf.filelist:
+        file.create_system = 0
+
+    zf.close()
+    response = HttpResponse(in_memory.getvalue(), content_type="application/zip")
+    response["Content-Disposition"] = "attachment; filename=results.zip"
+
+    return response
