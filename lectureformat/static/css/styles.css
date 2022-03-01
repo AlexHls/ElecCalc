@@ -424,7 +424,7 @@ h6 {
 
 /* -----------------------------------------Consent */
 .wrapper{
-  top:80%;
+  bottom: 0%;
   position: fixed;
   display: flex;
   width: 100%;
