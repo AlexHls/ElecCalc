@@ -48,7 +48,7 @@ try:
 except KeyError:
     SECRET_KEY = "django-insecure-+-gd0zfxdh(_s*yrief!gb*uwm(xka2%f6dlgkq4t632*rn=$0"
     DEBUG = True
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ["192.168.178.22"]
     # Database
     # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
