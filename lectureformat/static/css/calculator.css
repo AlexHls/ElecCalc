@@ -25,7 +25,7 @@
 #calculate .Container3 {
   background: transparent;
   width: 100%;
-  height: 10800px;
+  height: 1080px;
   padding-right: 1rem;
   padding-left: 1rem;
   padding-top: 8rem;
@@ -97,9 +97,6 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   border-radius: 15px;
-}
-.resultCard:hover {
-  transform: scale(0.98);
 }
 #calculate .col2 h1 {
   font-size: 3rem;
@@ -210,9 +207,6 @@ select {
 
   padding: 3%;
 }
-.submit:hover {
-  transform: scale(0.98);
-}
 .back {
   cursor: pointer;
 
@@ -233,9 +227,6 @@ select {
   box-sizing: border-box;
   border-radius: 15px;
 
-}
-.back:hover {
-  transform: scale(0.98);
 }
 .beginning {
   cursor: pointer;
@@ -259,8 +250,13 @@ select {
   box-sizing: border-box;
   border-radius: 15px;
 }
-.beginning:hover {
+.beginning:hover, 
+.download:hover,
+.submit:hover,
+.back:hover,
+.resultCard:hover  {
   transform: scale(0.98);
+  transition: all .2s ease-in-out;
 }
 .download {
   cursor: pointer;
@@ -286,9 +282,6 @@ select {
   border-radius: 15px;
 
   padding: 3%;
-}
-.download:hover {
-  transform: scale(0.98);
 }
 .input {
   font-family: Outfit;

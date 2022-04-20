@@ -10,17 +10,17 @@
     <link rel="stylesheet" href="{% static "css\calculator.css" %}"> 
     <link rel="stylesheet" href="{% static "css\privacy.css" %}"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 </head>
 <div>
 
-      <div class="header">
+      <div class="header" id="nav">
         <div class="leftmenu">
-          <div>
-            <a href="/"><image src="../static/media/home/eleclogo.svg" class="item logo" ></image></a></div>
-            <div><a class="item" href="calculator_home">elecCalc</a></div>
-            <div><a class="item" href="about">about</a></div>
-            <div><a class="item" href="team" >team</a></div>
+          <div class="mainlogo">
+            <a href="/"><image src="../static/media/home/eleclogo.svg" class="item logo main" ></image></a></div>
+            <div><a class="item link" href="calculator_home">elecCalc</a></div>
+            <div><a class="item link" href="about">about</a></div>
+            <div><a class="item link" href="team" >team</a></div>
         </div>
         <div>
           <button href="admin" onclick="location.href='admin';" class="login">log in</button>
@@ -74,7 +74,7 @@
 
         </main>
 
-        <div class="Container">
+        <div class="Container" style="margin-bottom: -1rem;">
           <div style=color:red><h2><b>DISCLAIMER: This website is only a prototype and still undergoing construction.</b></h2></div>
           <div class="sep"><h3>You will most likely encounter thinks which seem to not work properly and links that will lead to error messages.</h3></div>
           <div class="sep"><p>We are aware of most functionallity breaking bugs, but if you think you e.g. found an interesting edge case during the 
@@ -242,6 +242,15 @@
                     behavior: 'smooth'
                   });
                 }
+
+                $(function() {
+                    var pgurl = window.location.href.substr(window.location.href
+                .lastIndexOf("/")+1);
+                    $("a").each(function(){
+                          if($(this).attr("href") == pgurl || $(this).attr("href") == '' )
+                          $(this).addClass("active");
+                    })
+                });
 
               </script>
 
