@@ -5,23 +5,25 @@
         <div class="Container">
             <div class="Card">
             <div class="col col1">
-                <div class="title"><h1>ElecCalc</h1></div>
-                <div class="title" style="margin-top: -4rem;"><h2>Lecturer mode</h2></div>
                
-                <div class="sep"><h2>Welcome to the calculator.</h2></div>
-                <div style="color: #2C7DA0;"><h3> This webpage is under construction.</h3></div>
+                    <img class="mainimg" src="../static/media/ecalc/main_calc.png" />
+            
+                
+                <div class="title"><h1>elecCalc</h1></div>
+                <div class="title" style="margin-top: -3rem; "><h2>lecturer mode</h2></div>
+            
                 
             </div>
 
             <div class="col col2">
-                <h2>Choose your University</h2>
+                <h2>Choose your University.</h2>
                 <div class="sep">
                 <form action="calculator_base_selection" method="POST">
                     {% csrf_token %}
                 
                     {% if university_list %}
                         <label for="universitys"></label>
-                        <select id="universitys" name="universitys" class="">
+                        <select id="universitys" name="universitys" class="dropdownselect">
                             {% for university in university_list %}
                                 <option value={{ university.id }}>{{ university.university_name }}</option>
                             {% endfor %}
@@ -32,6 +34,11 @@
                     {% endif %}
 
                     <input class="submit" type="submit" value="Next">
+                    <div class="startup">
+                        <h4>*The calculator is currently still in the start-up phase, 
+                        therefore only valid for the Technical University of Munich.
+                        Further options will be available in the future.</h4>
+                    </div>
             </div>
 
         </div>

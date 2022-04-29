@@ -10,41 +10,78 @@
     <link rel="stylesheet" href="{% static "css\calculator.css" %}"> 
     <link rel="stylesheet" href="{% static "css\privacy.css" %}"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 </head>
 <div>
-    <header>   
-        <div id="leftmenu" class="links">
-          <div>
-            <a href="/"><image src="../static/media/home/eleclogo.svg" class="item logo" ></image></a></div>
-          <div><a class="item" href="about">About</a></div>
-          <div><a class="item" href="calculator_home">ElecCalc</a></div>
-          <div><a class="item" href="team">Team</a></div>
+
+      <div class="header" id="nav">
+        <div class="leftmenu">
+          <div class="mainlogo">
+            <a href="/"><image src="../static/media/home/eleclogo.svg" class="item logo main" ></image></a></div>
+            <div><a class="item link" href="calculator_home">elecCalc</a></div>
+            <div><a class="item link" href="about">about</a></div>
+            <div><a class="item link" href="team" >team</a></div>
         </div>
         <div>
-          <button href="admin" onclick="location.href='admin';" class="login">Login</button>
-          <button href="calculator_home" onclick="location.href='calculator_home';" class="calculate">Calculate Now</button>
+          <button href="admin" onclick="location.href='admin';" class="login">log in</button>
+          <button href="calculator_home" onclick="location.href='calculator_home';" class="calculate">calculate now</button>
         </div>
-    </header>
+      </div> 
+      <div class="sidebar">
+        <div>
+          <input type="checkbox" id="openSidebarMenu">
+          <label for="openSidebarMenu" class="sidebarIconToggleH">
+            <div class="spinner diagonal part-1"></div>
+            <div class="spinner horizontal"></div>
+            <div class="spinner diagonal part-2"></div>
+            </label>
+            <div id="sidebarMenu">
+              <ul class="sidebarMenuInner">
+                <li><a class="Ditem" href="calculator_home">elecCalc</a></li>
+                <li><a class="Ditem" href="about">about</a></li>
+                <li><a class="Ditem" href="team" >team</a></li>
+                <li><a href="rechtshinweise">legal notice - german</a></li>
+                <li><a href="legalnotice">legal notice - english</a></li>
+                <li><a href="datenschutz">privacy policy - german</a></li>
+                <li><a href="privacy">privacy policy - english</a></li>
+              </ul>
+            </div>
+        </div>
+        
+        <div>
+          <a href="/" style="margin-left: 1.5rem;"><image src="../static/media/home/eleclogo.svg" class="item logo" ></image></a></div>
+        <div class="DropButtons">
+          <input type="checkbox" id="openLoginMenu">
+          <label for="openLoginMenu" class="sidebarIconToggle">
+            <image src="../static/media/dropdown/Dlogin.svg"></image>
+            </label>
+            <div id="loginMenu">
+              <ul class="loginMenuInner">
+                <li><image src="../static/media/dropdown/login.svg" style="margin: 0px 20px -12px 0px;"></image><button href="admin" onclick="location.href='admin';" class="login" >log in</button></li>
+                <li><image src="../static/media/dropdown/calc.svg" style="margin: 0px 20px -12px 0px;"></image></image><button href="calculator_home" onclick="location.href='calculator_home';" class="calculate">calculate now</button></li>
+              </ul>
+            </div>
+        </div>
+      </div>
     {% block content %}
        <main>
-         <div class="home">
+     
         <div class="Container">
           <h1 >Welcome to elecCalc.</h1>
           <h3>This calculator is an early prototype of our group project elecTUM of </h3>
           <h3>TUM:Junge Akademie. Learn more about our project through our website.</h3>
         </div>
-      </div>
+
         </main>
 
-        <div class="Container">
-            <div style=color:red><h2><b>DISCLAIMER: This website is only a prototype and still undergoing construction.</b></h2></div>
-            <div class="sep"><h3>You will most likely encounter thinks which seem to not work properly and links that will lead to error messages.</h3></div>
-            <div class="sep"><p>We are aware of most functionallity breaking bugs, but if you think you e.g. found an interesting edge case during the 
-                calculation which we didn't think ouf, please let us know. The best way you can do so is by opening an issue over on our
-                <a style=color:#2C7DA0 href="https://github.com/AlexHls/ElecCalc">GitHub</a>. This is also where you can help us by contributing to our source code!</div>
-            </div>
-
+        <div class="Container" style="margin-bottom: -1rem;">
+          <div style=color:red><h2><b>DISCLAIMER: This website is only a prototype and still undergoing construction.</b></h2></div>
+          <div class="sep"><h3>You will most likely encounter thinks which seem to not work properly and links that will lead to error messages.</h3></div>
+          <div class="sep"><p>We are aware of most functionallity breaking bugs, but if you think you e.g. found an interesting edge case during the 
+              calculation which we didn't think ouf, please let us know. The best way you can do so is by opening an issue over on our
+              <a style=color:#2C7DA0 href="https://github.com/AlexHls/ElecCalc">GitHub</a>. This is also where you can help us by contributing to our source code!</div>
+          </div>
+          
         <div class="Container">
           <div class="col col1">
             <div><h2> Find out the most sustainable option for your lectures.</h2></div>
@@ -75,7 +112,7 @@
           <image src="../static/media//home/right.svg"></image>
         </div>
   
-        <div class="history-block C1">
+        <div class="C1">
     
           <div class="title">Step 1</div>
           <div class="subtitle">Log in or sign up <a class="subtitle" href="admin" style="color: #2C7DA0;">here.</a></div>
@@ -85,7 +122,7 @@
    
         </div>
   
-        <div class="history-block C2">
+        <div class="C2">
    
             <div class="title">Step 2</div>
             <div class="subtitle">Choose your university*</div>
@@ -93,14 +130,14 @@
   
         </div>
   
-        <div class="history-block C2">
+        <div class="C2">
   
           <div class="title">Step 3</div>
           <div class="subtitle">Pick the basic parameters for the calculation</div>
           <div class="note">In this step, you can enter the number of students attending the lecture, the lecture duration, the faculty* and lecture hall*, as well as information regarding the</div>
           </div>
   
-        <div class="history-block C2">
+        <div class="C2">
   
           <div class="title">Step 4</div>
           <div class="subtitle">Select your sampling mode and additional outputs.</div>
@@ -109,7 +146,7 @@
   
         </div>
   
-        <div class="history-block C2">
+        <div class="C2">
    
           <div class="title">Step 5</div>
           <div class="subtitle">Decide which option you want to test</div>
@@ -132,26 +169,26 @@
 
 
   <div class="OContainer">
-    <div><h1>These are the parameters that</h1> <h1 style="margin-bottom: -4rem;">go into the calculation.</h1>   </div>
+    <div><h1 style="padding-top: 4rem;">These are the parameters that</h1> <h1 style="margin-bottom: -4rem;">go into the calculation.</h1>   </div>
   
   <div class="inline">
-    <div class="paramcard">
+    <div class="paramcard redLeftMargin">
       <image src="../static/media/home/bike.svg"></image>
       <div class="text"><p>mobility</p></div>
     </div>
-    <div class="paramcard">
+    <div class="paramcard redLeftMargin">
       <image src="../static/media/home/elecHouse.svg"></image>
       <div class="text"><p>household energy consumption</p></div>
     </div>
-    <div class="paramcard">
+    <div class="paramcard redLeftMargin">
       <image src="../static/media/home/lecture.svg"></image>
       <div class="text"><p>lecture halls</p></div>
     </div>
-    <div class="paramcard">
+    <div class="paramcard redLeftMargin">
       <image src="../static/media/home/streaming.svg"></image>
       <div class="text"><p>streaming platforms</p></div>
     </div>
-    <div class="paramcard">
+    <div class="paramcard redLeftMargin">
       <image src="../static/media/home/devices.svg"></image>
       <div class="text"><p>devices</p></div>
     </div>
@@ -165,7 +202,7 @@
        
         {% endblock %}
             <div class="wrapper">
-                <img src="#" alt="">
+              
                 <div class="cookie-content">
                   <p>This website uses cookies to ensure you get the best experience.</p>
                   <div class="buttons">
@@ -190,7 +227,7 @@
                 checkCookie != -1 ? cookieBox.classList.add("hide") : cookieBox.classList.remove("hide"); 
 
                 const outsider = document.getElementById('outsider');
-                const distance = 800;
+                const distance = 500;
 
                 function scrollLft() {
                   outsider.scrollBy({
@@ -205,17 +242,22 @@
                     behavior: 'smooth'
                   });
                 }
-                
+
+                $(function() {
+                    var pgurl = window.location.href.substr(window.location.href
+                .lastIndexOf("/")+1);
+                    $("a").each(function(){
+                          if($(this).attr("href") == pgurl || $(this).attr("href") == '' )
+                          $(this).addClass("active");
+                    })
+                });
+
               </script>
 
    
     <footer>
-      <div class="">
-        
-        <a class="item" href="about">About</a>
-        <a class="itemf" href="calculator_home">ElecCalc</a>
-        <a class="itemf" href="team">Team</a>
-        <a href="/"><image src="../static/media/home/eleclogo.svg" class="itemf logo" ></image></a>
+      <div class="bottommenu">
+        <a href="/"><image src="../static/media/home/eleclogo.svg" ></image></a>
 
       </div>
       <div class="footerline"></div>

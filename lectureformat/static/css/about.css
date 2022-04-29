@@ -4,8 +4,8 @@
     background-attachment: fixed;
     background-size: cover;
   
-    height: 1000px;
-    padding-top: 22rem;
+    height: 1050px;
+    padding-top: 8rem;
 
     text-align: center;
 }
@@ -26,20 +26,36 @@
     background-attachment: fixed;
     background-size: cover;
   
-    height: 1000px;
-    padding-top: 2rem;
-
-
-
+    height: 1250px;
+    padding-top: 0rem;
 
     text-align: center;
 }
-.earth {
+.aboutimg {
+    display: block;
     height: auto;
-    width: 700px;
+    width: 100%;
 
-    margin-top: -12rem;
+    margin-top: -15rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.about3 .editimg {
+    margin-top: -5rem;
+}
 
+.about .col2 {
+    margin-top: 10rem;
+}
+.about2 .col1 {
+    margin-top: 25rem;
+}
+.about2 .col2 {
+    margin-top: -62rem;
+    margin-bottom: -10rem;
+}
+.about3 .col2 {
+    margin-top: 30rem;
 }
 .about3 button {
     background: #18A0FB;
@@ -57,9 +73,116 @@
 
     width: 173px;
     height: 34px;
+
+    z-index: 99;
 }
 
 .about3 button:hover {
-    transform: scale(1.1);
+    transform: scale(.98);
     transition: all .2s ease-in-out;
   }
+
+@media (min-width: 768px) { 
+    .about3 .col1 {
+        margin-bottom: -10rem;
+    }
+    
+    .aboutimg {
+        height: auto;
+        width: 80%;
+    
+        margin-top: -15rem;
+        margin-left: auto;
+        margin-right: auto;
+    
+ }
+ .about2 .editimg {
+    margin-top: -18rem;
+}
+.about3 .editimg {
+    margin-top: 2rem;
+}
+}
+@media (min-width: 992px) { 
+    .aboutimg {
+        height: auto;
+        width: 70%;
+    
+        margin-top: -20rem;
+        margin-left: auto;
+        margin-right: auto;
+
+    
+    }
+    .about2 .editimg {
+        margin-top: -25rem;
+    }
+    .about3 .editimg {
+        margin-top: -7rem;
+    }
+}
+@media (min-width: 1200px) {
+    .about {
+        background: transparent;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      
+        height: 1050px;
+        padding-top: 22rem;
+    
+        text-align: center;
+    }
+    .about2 {
+        background: #A9BA88;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      
+        height: 1000px;
+        padding-top: 15rem;
+    
+        text-align: center;
+    }
+    .about3 {
+        background: transparent;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      
+        height: 1000px;
+        padding-top: 2rem;
+    
+        text-align: center;
+    }
+
+    .aboutimg {
+        height: auto;
+        width: 110%;
+    
+        margin-top: -5rem;
+        margin-left: auto;
+        margin-right: auto;
+    
+    }
+    .about2 .editimg {
+        margin-top: -10rem;
+    }
+    .about3 .editimg {
+        margin-top: 7rem;
+    }
+    .about .col2 {
+        margin-top: 0rem;
+    }
+    .about2 .col1 {
+        margin-top: 0rem;
+    }
+    .about2 .col2 {
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+    }
+    .about3 .col2 {
+        margin-top: 0rem;
+    }
+
+}

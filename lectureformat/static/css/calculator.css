@@ -1,7 +1,7 @@
 #calculate .Container {
   background: transparent;
   width: 100%;
-  height: 700px;
+  height: 860px;
   padding-right: 1rem;
   padding-left: 1rem;
   padding-top: 8rem;
@@ -10,10 +10,10 @@
   margin-left: auto;
   align-items: center;
   }
-  #calculate .Container2 {
+#calculate .Container2 {
     background: transparent;
     width: 100%;
-    height: 700px;
+    height: 880px;
     padding-right: 1rem;
     padding-left: 1rem;
     padding-top: 8rem;
@@ -25,7 +25,7 @@
 #calculate .Container3 {
   background: transparent;
   width: 100%;
-  height: 700px;
+  height: 1080px;
   padding-right: 1rem;
   padding-left: 1rem;
   padding-top: 8rem;
@@ -34,11 +34,42 @@
   margin-left: auto;
   align-items: center;
 }  
-#calculate .Card {
-  background: #FFFFFF;
-  border: 0.1px solid rgba(118, 117, 117, 0.5);
-  box-shadow: 5px 7px 7px rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
+#calculate .Container4 {
+  background: transparent;
+  width: 100%;
+  height: 460px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-top: 8rem;
+  margin-bottom: 48rem;
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+}  
+#calculate .Container5 {
+  background: transparent;
+  width: 100%;
+  height: 880px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-top: 8rem;
+  margin-bottom: 48rem;
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+}  
+#calculate .resultCard {
+  margin-bottom: 3rem;
+}
+#calculate .Card,
+#calculate .Card2,
+#calculate .Card3,
+#calculate .Card4,
+#calculate .Card5 {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: none;
 
   width: 100%;
   height: 100%;
@@ -47,47 +78,105 @@
   padding: 4%;
 
 }
-#calculate .Card2 {
-  background: #FFFFFF;
-  border: 0.1px solid rgba(118, 117, 117, 0.5);
-  box-shadow: 5px 7px 7px rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
+.greyContainer {
+  background-color: #F5F5F5;
+  width: 50%;
+  height: auto;
+}
+.resultCard {
 
   width: 100%;
-  height: 950px;
+  height: auto;
 
-  margin-top: 4rem;
-  padding: 4%;
+  padding: 6%;
+  margin-top: 4%;
+  margin-bottom: 4%;
 
-}
-#calculate .Card3 {
-  background: #FFFFFF;
-  border: 0.1px solid rgba(118, 117, 117, 0.5);
-  box-shadow: 5px 7px 7px rgba(0, 0, 0, 0.2);
+  background: white;
+  border: 1px solid #C4C4C4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
   border-radius: 15px;
-
-  width: 100%;
-  height: 1000px;
-
-  margin-top: 4rem;
-  padding: 4%;
-
 }
-#calculate .Card4 {
-  background: #FFFFFF;
-  border: 0.1px solid rgba(118, 117, 117, 0.5);
-  box-shadow: 5px 7px 7px rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
-
-  width: 100%;
-  height: 630px;
-
-  margin-top: 4rem;
-  padding: 4%;
-
-}
-#calculate h2 {
+#calculate .col2 h1 {
   font-size: 3rem;
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 300;
+}
+#calculate .col1 h2 {
+  padding-top: 5px;
+  font-size: 1.2rem;
+}
+#calculate h3 {
+  font-size: 1.9rem;
+}
+
+#calculate .title {
+  text-align: center;
+  color: #2C7DA0;
+}
+.Card3 span {
+    color: #85A44A;
+}
+.startup h4 {
+  margin-top: 3%;
+  padding: 10%;
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+
+  color: #CCCCCC;
+}
+#calculate .col2 h2 {
+  font-size: 1.9rem;
+}
+#calculate .col2 {
+  margin-top: -2rem;
+  font-size: 1.9rem;
+}
+#calculate .col2 p {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 400;
+  color: #2C7DA0;
+  font-size: 1.4rem;
+}
+#calculate .Card2 span {
+  color: #18A0FB;
+}
+#calculate .Container5 p {
+  color: #353535;
+  font-weight: 200;
+
+}
+#calculate .students {
+  display: block;
+  margin-bottom: 4rem;
+}
+#calculate .onsite {
+  margin-left: 0rem;
+}
+#calculate .students span {
+  color: #85A44A;
+  font-weight: 500;
+  margin-right: 1rem;
+  font-size: 3rem;
+}
+#calculate .consumption span {
+  color: #18A0FB;
+  font-size: 1.4rem;
+  font-weight: 200;
+  margin-right: 1rem;
+}
+#calculate .mainimg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
 }
 select {
   width: 100%;
@@ -100,118 +189,594 @@ select {
   padding: 3%;
 }
 .submit {
+  cursor: pointer;
+
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #F5F5F5;
+
   width: 100%;
+  height: 4rem;
 
   background: #CB997E;
-  border: 1px solid #C4C4C4;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 15px;
+
+  padding: 3%;
+}
+.back {
+  cursor: pointer;
+
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: black;
+
+  text-align: center;
+  align-content: center;
+
+  width: 100%;
+  height: 4rem;
+
+  background: white;
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 15px;
+
+}
+.beginning {
+  cursor: pointer;
+
+  margin-top: 1rem;
+
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: rgba(118, 117, 117, 0.83);
+
+  text-align: center;
+  align-content: center;
+
+  width: 100%;
+  height: 4rem;
+
+  background: white;
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+.beginning:hover, 
+.download:hover,
+.submit:hover,
+.back:hover,
+.resultCard:hover  {
+  transform: scale(0.98);
+  transition: all .2s ease-in-out;
+}
+.download {
+  cursor: pointer;
+
+  margin-top: 1rem;
+
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: white;
+
+  width: 100%;
+  height: 4rem;
+
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  background: #18A0FB;
+  border: none;
   box-sizing: border-box;
   border-radius: 15px;
 
   padding: 3%;
 }
 .input {
-width: 100%;
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 1.2rem;
+  color: black;
 
-background: white;
-border: 1px solid #C4C4C4;
-box-sizing: border-box;
-border-radius: 15px;
+  align-content: center;
 
-padding: 3%;
+  width: 100%;
+  height: 4rem;
+
+  background: white;
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 15px;
+
+  padding: 3%;
 }
+.select {
+  width: 100%;
+  
+  background: white;
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 15px;
+  
+  padding: 3%;
+  }
 .Cinline {
-display: inline-flex;
+  display: inline-flex;
 
-text-align: center;
-height: auto;
-width: 100%;
+  text-align: center;
+  height: auto;
+  width: 100%;
 }
+.Cinline .submit {
+  margin-left: 1rem;
+}
+.dropdownselect {
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #2C7DA0;
 
+  display: block;
+  width: 100%;
+  height: 5rem;
+  margin-top: 2%;
+  padding: 3%;
+  height: auto;
+  text-align: center;
+  align-content: center;
+
+  background: white;
+  border: 3px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
 .anyselection {
-font-family: Outfit;
-font-style: normal;
-font-weight: 300;
 
-display: block;
-width: 96%;
-margin-top: 2%;
-margin-bottom: 2%;
-margin-right: 2%;
-padding: 3%;
-height: auto;
-text-align: center;
-align-content: center;
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  height: auto;
+  text-align: center;
+  align-content: center;
 
-background: #F5F5F5;
-border: 1px solid #C4C4C4;
-box-sizing: border-box;
-border-radius: 15px;
+  background: transparent;
+}
+.resultsubmit {
+  display: block;
 
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.9rem;
+
+  margin-top: 2%;
+  margin-bottom: 2% ;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  background: #F5F5F5;
+  font-size: 1rem;
+  color: #2C7DA0;
+  cursor: pointer;
+
+  width: 100%;
+  height: 5rem;
+
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+.resultsubmit:hover {
+  background-color: #A9BA88;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  color: #F5F5F5;
+}
+#calculate input[type=radio], #calculate input[type=checkbox] {
+  display:none;
 }
 
-input[type=radio], input[type=checkbox] {
-display:none;
-}
+#calculate input[type=radio] + label {
 
-input[type=radio] + label {
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 500;
+  width: 100%;
 
-font-family: Outfit;
-font-style: normal;
-font-weight: 300;
-width: 100%;
+  margin-top: 1rem;
 
-margin: 2%;
+  padding: 3%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 
-line-height: normal;
-padding: 3%;
-padding-top: 2rem;
-padding-bottom: 2rem;
+  background: #F5F5F5;
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 15px;
 
-background: #F5F5F5;
-border: 2px solid #C4C4C4;
-box-sizing: border-box;
-border-radius: 15px;
-
-font-family: Outfit;
-font-style: normal;
-font-weight: 500;
-
-
-font-size: 14px;
-color: #2C7DA0 ;
-text-align: center;
-vertical-align: middle;
-cursor: pointer;
+  font-size: 1rem;
+  color: #2C7DA0;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
 
 }
-input[type=checkbox] + label {
+.sampling {
+  margin-left: 1rem;
+}
+#calculate input[type=checkbox]{
 
-font-family: Outfit;
-font-style: normal;
-font-weight: 300;
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 500;
 
-margin-top: 2%;
-margin-bottom: 2% ;
-padding: 0% 20% 0% 20%;
+  margin-top: 2%;
+  margin-bottom: 2% ;
+  padding-top: 2rem;
+  padding-left: 19%;
+  padding-right: 19%;
+  padding-bottom: 2rem;
 
-line-height: normal;
+  background: #F5F5F5;
+  font-size: 1rem;
+  color: #2C7DA0;
+  vertical-align: middle;
+  cursor: pointer;
 
-background: #F5F5F5;
-font-size: 14px;
-color: #333;
-text-align: left;
-vertical-align: middle;
-cursor: pointer;
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+#calculate label.one {
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 500;
+
+  margin-top: 2%;
+  margin-bottom: 2% ;
+  padding-top: 2rem;
+  padding-left: 7.92%;
+  padding-right: 7.92%;
+  padding-bottom: 2rem;
+
+  background: #F5F5F5;
+  font-size: 1rem;
+  color: #2C7DA0;
+  vertical-align: middle;
+  cursor: pointer;
+
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+#calculate label.two {
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 500;
+
+  margin-top: 2%;
+  margin-bottom: 2% ;
+  padding-top: 2rem;
+  padding-left: 9.9%;
+  padding-right: 9.9%;
+  padding-bottom: 2rem;
+
+  background: #F5F5F5;
+  font-size: 1rem;
+  color: #2C7DA0;
+  vertical-align: middle;
+  cursor: pointer;
+
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+#calculate label.three {
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 500;
+
+  margin-top: 2%;
+  margin-bottom: 2% ;
+  padding-top: 2rem;
+  padding-left: 34.27%;
+  padding-right: 34.27%;
+  padding-bottom: 2rem;
+
+  background: #F5F5F5;
+  font-size: 1rem;
+  color: #2C7DA0;
+  vertical-align: middle;
+  cursor: pointer;
+
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+#calculate label.four {
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 500;
+
+  margin-top: 2%;
+  margin-bottom: 2% ;
+  padding-top: 2rem;
+  padding-left: 24.28%;
+  padding-right: 24.28%;
+  padding-bottom: 2rem;
+
+  background: #F5F5F5;
+  font-size: 1rem;
+  color: #2C7DA0;
+  vertical-align: middle;
+  cursor: pointer;
+
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+#calculate label.five {
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 500;
+
+  margin-top: 2%;
+  margin-bottom: 2% ;
+  padding-top: 2rem;
+  padding-left: 9.85%;
+  padding-right: 9.85%;
+  padding-bottom: 2rem;
+
+  background: #F5F5F5;
+  font-size: 1rem;
+  color: #2C7DA0;
+  vertical-align: middle;
+  cursor: pointer;
+
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+#calculate label.six {
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 500;
+
+  margin-top: 2%;
+  margin-bottom: 2% ;
+  padding-top: 2rem;
+  padding-left: 18.64%;
+  padding-right: 18.64%;
+  padding-bottom: 2rem;
+
+  background: #F5F5F5;
+  font-size: 1rem;
+  color: #2C7DA0;
+  vertical-align: middle;
+  cursor: pointer;
+
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+#calculate label.seven {
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 500;
+
+  margin-top: 2%;
+  margin-bottom: 2% ;
+  padding-top: 2rem;
+  padding-left: 23.817%;
+  padding-right: 23.817%;
+  padding-bottom: 2rem;
+
+  background: #F5F5F5;
+  font-size: 1rem;
+  color: #2C7DA0;
+  vertical-align: middle;
+  cursor: pointer;
+
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+#calculate input[type=radio]:checked + label{
+  border: 3px solid #000000;
+  box-sizing: border-box;
 }
 
-input[type=radio]:checked + label{
-text-decoration: overline;
-text-decoration-thickness: 0.5rem;
+#calculate input[type=checkbox]:checked + label{
+  border: 3px solid #000000;
+  box-sizing: border-box;
 }
 
-input[type=checkbox]:checked + label{
-text-decoration: overline;
-text-decoration-thickness: 0.5rem;
-text-decoration-style: round;
+@media (min-width: 768px) {
+  #calculate .Container {
+    height: 1150px;
+    }
+  #calculate .Container2 {
+    height: 1100px;
+    }
+  #calculate .Container3 {
+    height: 1300px;
+    }  
+  #calculate .Container4 {
+    height: 550px;
+    }    
+  #calculate .Container5 {
+    height: 1100px;
+    }      
+  #calculate .col2 {
+    margin-top: 6rem;
+  }
+  #calculate .mainimg {
+    width: 60%;
+  }
+  #calculate .onsite {
+    margin-left: 6rem;
+  }
+  #calculate .students {
+    display: inline-flex;
+  }
+  #calculate .students span {
+    font-size: 4rem;
+  }
+  #calculate .consumption span {
+    font-size: 2.2rem;
+    margin-right: 2rem;
+  }
+  #calculate label.one {
+    padding-left: 19.9%;
+    padding-right: 19.9%;
+  }
+  #calculate label.two {
+    padding-left: 20.98%;
+    padding-right: 20.98%;
+  }
+  #calculate label.three {
+    padding-left: 34.2%;
+    padding-right: 34.2%;
+  }
+  #calculate label.four {
+    padding-left: 28.75%;
+    padding-right: 28.75%;
+  }
+  #calculate label.five {
+    padding-left: 20.95%;
+    padding-right: 20.95%;
+  }
+  #calculate label.six {
+    padding-left: 25.72%;
+    padding-right: 25.72%;
+  }
+  #calculate label.seven {
+    padding-left: 28.52%;
+    padding-right: 28.52%;
+  }
 }
+@media (min-width: 1200px) {
 
+#calculate .Container {
+  height: 800px;
+  }
+#calculate .Container2 {
+  height: 780px;
+  }
+#calculate .Container3 {
+  height: 910px;
+  }  
+#calculate .Container4 {
+  height: 400px;
+  }  
+#calculate .Container5 {
+  height: 850px;
+  }  
+  #calculate .col2 {
+    margin-top: 0rem;
+  }
+  #calculate .Card {
+    background: #FFFFFF;
+    border: 0.1px solid rgba(118, 117, 117, 0.5);
+    box-shadow: 5px 7px 7px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+  
+  }
+  #calculate .Card2 {
+    background: #FFFFFF;
+    border: 0.1px solid rgba(118, 117, 117, 0.5);
+    box-shadow: 5px 7px 7px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+  
+    width: 100%;
+    height: 1060px;
+  }
+  #calculate .Card3 {
+    background: #FFFFFF;
+    border: 0.1px solid rgba(118, 117, 117, 0.5);
+    box-shadow: 5px 7px 7px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+  
+    width: 100%;
+    height: 1380px;
+  }
+  #calculate .Card4 {
+    background: #FFFFFF;
+    border: 0.1px solid rgba(118, 117, 117, 0.5);
+    box-shadow: 5px 7px 7px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+  
+    width: 100%;
+    height: 860px;
+  }
+  #calculate .Card5 {
+    background: #FFFFFF;
+    border: 0.1px solid rgba(118, 117, 117, 0.5);
+    box-shadow: 5px 7px 7px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+  
+    width: 100%;
+    height: 1340px;
+  }
+  #calculate h2 {
+    font-size: 2.2rem;
+  }
+  #calculate h3 {
+    font-size: 2.2rem;
+  }
+  #calculate .col2 p {
+    font-size: 1.2rem;
+  }
+  /*  */
+  #calculate .mainimg {
+    width: 60%;
+  }
+  .dropdownselect {
+    border: 2px solid #C4C4C4;
+    background: #F5F5F5;
+  }
+  #calculate label.one {
+    padding-left: 19.9%;
+    padding-right: 19.9%;
+  }
+  #calculate label.two {
+    padding-left: 21.2%;
+    padding-right: 21.2%;
+  }
+  #calculate label.three {
+    padding-left: 37.9%;
+    padding-right: 37.9%;
+  }
+  #calculate label.four {
+    padding-left: 31%;
+    padding-right: 31%;
+  }
+  #calculate label.five {
+    padding-left: 21.155%;
+    padding-right: 21.155%;
+  }
+  #calculate label.six {
+    padding-left: 27.15%;
+    padding-right: 27.15%;
+  }
+  #calculate label.seven {
+    padding-left: 30.69%;
+    padding-right: 30.69%;
+  }
+}

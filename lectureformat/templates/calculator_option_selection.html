@@ -3,68 +3,63 @@
 {% block content %}
 
 <div id="calculate">
-<div class="Container2">
+<div class="Container3">
 	<div class="Card3">
 	<div class="col col1">
-		<div class="title"><h1>ElecCalc</h1></div>
-                <div class="title" style="margin-top: -4rem;"><h2>Lecturer mode</h2></div>
-		<p> So far you have selected the following parameters: </p>
-		<p> University: {{ university }} </p>
-		<p> Number of students: {{ num }} </p>
-		<p> Faculty: {{ faculty }} </p>
-		<p> Lecture hall: {{ lecture_hall }} </p>
-		<p> Streaming service: {{ streaming }} </p>
-		<p> VoD service: {{ vod }} </p>
-		<div class="sep" style="color: #2C7DA0;"><h3> This webpage is under construction.</h3></div>
+		<div class="title"><h1>elecCalc</h1></div>
+                <div class="title" style="margin-top: -3rem;"><h2>lecturer mode</h2></div>
+				<h3>You can now select the <span>sampling mode</span> and additional outputs.</h3>
 
 	</div>
 
 	<div class="col col2">
-		<h2> Select sampling method:</h2> 
+		<h3> Sampling method:</h3> 
 		<form action="calculator_result_selection" method="POST">
 			{% csrf_token %}
-			Choose a samling mode: <br>
-			<div class="Cinline">
+		
+		<div class="Cinline">
 			<input class="space" type="radio" id="sampling_simple" name="sampling" value="Simple" checked="checked">
 			<label for="sampling_simple">Simple sampling mode</label><br>
 			<input type="radio" id="sampling_mcmc" name="sampling" value="MCMC">
-			<label for="sampling_mcmc">Advanced MCMC sampling</label>
+			<label for="sampling_mcmc" class="sampling">Advanced MCMC sampling</label>
 		</div>
 
-			<h2>Additional outputs selection:</h2>
+		<div class="sep">
+			<h2>Additional outputs:</h2>
 			<div class="Cblock">
-			<div class="anyselection colorDiv">
+			<div class="anyselection">
 				<input type="checkbox" id="random_living" name="random_living" value="random_living">
-				<label for="random_living"> Randomise living situation of students</label>
+				<label for="random_living" class="one"> Randomise living situation of students</label>
 			</div>
-			<div class="anyselection colorDiv">
+			<div class="anyselection">
 				<input type="checkbox" id="random_device" name="random_device" value="random_device">
-				<label for="random_device">  Randomise used devices of students</label>
+				<label for="random_device" class="two">  Randomise used devices of students</label>
 			</div>
-			<div class="anyselection colorDiv">
+			<div class="anyselection">
 				<input type="checkbox" id="beamer" name ="beamer" value="beamer">
-				<label for="beamer"> Use beamer</label>
+				<label for="beamer" class="three"> Use beamer</label>
 			</div>
 			<div class="anyselection">
 				<input type="checkbox" id="logplot" name ="logplot" value="logplot" checked>
-				<label for="logplot"> Show logarithmic plot</label>
+				<label for="logplot" class="four"> Show logarithmic plot</label>
 			</div>
 			<div class="anyselection">
 				<input type="checkbox" id="notransport" name ="notransport" value="notransport" checked>
-				<label for="notransport"> Show results without transportation</label>
+				<label for="notransport" class="five"> Show results without transportation</label>
 			</div>
 			<div class="anyselection">
 				<input type="checkbox" id="showseating" name ="showseating" value="showseating">
-				<label for="showseating"> Show seating capacity limit</label>
+				<label for="showseating" class="six"> Show seating capacity limit</label>
 			</div>
 			<div class="anyselection">
 				<input type="checkbox" id="option1" name="option1" value="debug">
-				<label for="option1"> Turn debug outputs on</label>
+				<label for="option1" class="seven"> Turn debug outputs on</label>
 			</div>
 		</div>
+	</div>
 
 		<div class="Cinline">
-			<input class="input" type="button" value="Back" onclick="history.back()">
+			<input class="back" type="button" value="Back" onclick="history.back()">
 			<input class="submit" type="submit" value="Next">
 		</div>
 		</form>

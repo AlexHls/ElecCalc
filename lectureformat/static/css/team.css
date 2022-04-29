@@ -1,51 +1,60 @@
-.team {
-    background-image: url(../media/team/team-background.webp);
+main .team {
+    background-image: url(../media/mobile/team_main.webp);
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size: cover;
-  
-    height: 1000px;
 
-    text-align: center;
+    height: 1025px;
 }
 .team .Container {
     padding-top: 44rem;
     text-align: center;
     color: white;
 }
-.inline {
+.Pinline {
     display: inline-flex;
     justify-content: space-between;
     margin-top: 8rem;
     text-align: center;
 
-  }
+}
 .teamcard {
-width: fit-content;
-height: fit-content;
-
 display: block;
 
 background: #FFFFFF;
 box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 7px;
 padding-bottom: 2rem;
+max-width: 16rem;
 
-margin-left: 5rem;
 overflow: hidden;
 }
-.inline .text {
-padding-top: 2rem;
-font-family: Outfit;
-font-style: normal;
-font-weight: 300;
-font-size: 14px;
-align-items: center;
+.Tinline {
+    display: block;
+    justify-content: center;
+    margin-top: 8rem;
 
-color: #9D9D9C;
+    text-align: center;
+    align-items: center;
+
+}
+.Tinline .text {
+    padding-top: 2rem;
+    font-family: Outfit;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    align-items: center;
+
+    color: #9D9D9C;
+}
+.redMarginTop {
+    margin-top: 8rem;
+}    
+.prof {
+    margin: 0 0 0 0;
 }
 .profcard {
-    width: 16rem;
+    width: 9rem;
     height: fit-content;
     
     display: block;
@@ -53,8 +62,98 @@ color: #9D9D9C;
     background: #FFFFFF;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 7px;
+
+    justify-content: space-between;
     
-    margin-left: 5rem;
     overflow: hidden;
     padding-bottom: 2rem;
+}
+.mobilecard {
+    width: 100%;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+
+    main .team {
+        background-image: url(../media/mobile/team_main_tablet.webp);   
+        background-repeat: no-repeat;
+        background-size: cover;
+    
+        height: 1025px;
+    }
+    .teamcard {
+        display: inline-block;
+        
+        background: #FFFFFF;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 7px;
+        padding-bottom: 2rem;
+        max-width: 14rem;
+        margin-left: 2rem;
+        
+        overflow: hidden;
+    }
+    .profcard {
+        width: 16rem;
+        height: fit-content;
+        
+        display: block;
+        
+        background: #FFFFFF;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 7px;
+    
+        justify-content: space-between;
+        
+        overflow: hidden;
+        padding-bottom: 2rem;
+    }
+    .Tinline {
+        display: inline-flex;
+        justify-content: space-between;
+        margin-top: 8rem;
+        text-align: center;
+    
+    }
+    .Pinline {
+        display: inline-flex;
+        justify-content: space-between;
+        margin-top: 8rem;
+        text-align: center;
+    
+    }
+    .redMarginTop {
+        margin-top: 0rem;
+    }    
+    .teamimg {
+        width: 100%;
+        
+    }
+    .Tinline .mobilecard p {
+        font-size: 0.7rem;
+    }
+    .Tinline .text {
+        font-size: 0.7rem;
+    }
+
+}
+
+@media (min-width: 992px) {
+    main .team {
+        background-image: url(../media/team/team-background.webp);   
+        background-repeat: no-repeat;
+        background-size: cover;
+    
+        height: 1025px;
+    }
+    .Tinline .mobilecard p {
+        font-size: 1rem;
+    }
+    .Tinline .text {
+        font-size: 0.9rem;
+    }
+    
 }

@@ -14,6 +14,7 @@ import numpy as np
 import lectureformat.scripts as s
 import io
 from zipfile import ZipFile
+import pandas as pd
 
 from .lecture import *
 from .models import *
@@ -262,13 +263,25 @@ def calculator_result(request):
         options=opts,
     )
 
-    consumption, stat_uncertainty = lecture.get_consumption(
+    lecture.get_consumption(
         float(time), mode, sampling.lower()
     )
 
-    context["consumption"] = "{:.2f} +/- {:.2f} kWh".format(
-        consumption, stat_uncertainty
-    )
+    if "hybrid" in mode:
+        context["consumption"] = np.around(lecture.res_cons, 1)[0]
+        context["stat_uncertainty"] = np.around(lecture.res_cons_err, 1)[0]
+        if "notransport" in context["options"]:
+            context["consumption_notransp"] = np.around(lecture.res_cons_notransp, 1)[0]
+            context["stat_uncertainty_notransp"] = np.around(lecture.res_cons_err_notransp, 1)[0]
+        else:
+            context["consumption_notransp"] = np.around(lecture.res_cons_notransp, 1)
+            context["stat_uncertainty_notransp"] = np.around(lecture.res_cons_err_notransp, 1)
+    else:
+        context["consumption"] = np.around(lecture.res_cons, 1)
+        context["stat_uncertainty"] = np.around(lecture.res_cons_err, 1)
+        context["consumption_notransp"] = np.around(lecture.res_cons_notransp, 1)
+        context["stat_uncertainty_notransp"] = np.around(lecture.res_cons_err_notransp, 1)
+
     if lecture.figure is not None:
         context["figure"] = lecture.figure
 
@@ -279,6 +292,21 @@ def calculator_result(request):
     context["debug_figures"] = []
     for key in list(lecture.debug_figures.keys()):
         context["debug_figures"].append(lecture.debug_figures[key])
+
+    if "hybrid" in mode:
+        context["min_stud_online"] = lecture.min_stud_online[0]
+        context["min_stud_offline"] = lecture.min_stud_offline[0]
+        if "notransport" in context["options"]:
+            context["min_stud_online_notransp"] = lecture.min_stud_online_notransp[0]
+            context["min_stud_offline_notransp"] = lecture.min_stud_offline_notransp[0]
+        else:
+            context["min_stud_online_notransp"] = lecture.min_stud_online_notransp
+            context["min_stud_offline_notransp"] = lecture.min_stud_offline_notransp
+    else:
+        context["min_stud_online"] = lecture.min_stud_online
+        context["min_stud_offline"] = lecture.min_stud_offline
+        context["min_stud_online_notransp"] = lecture.min_stud_online_notransp
+        context["min_stud_offline_notransp"] = lecture.min_stud_offline_notransp
 
     return render(request, "calculator_result.html", context)
 
