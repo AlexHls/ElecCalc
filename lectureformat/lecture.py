@@ -5,7 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
 from scipy import interpolate
-import pandas as pd
 
 from .models import *
 
@@ -100,6 +99,16 @@ class Lecture:
         }
         self.debug_figures = {}
 
+        self.min_stud_online = None
+        self.min_stud_offline = None
+        self.min_stud_online_notransp = None
+        self.min_stud_offline_notransp = None
+
+        self.res_cons = None
+        self.res_cons_err = None
+        self.res_cons_notransp = None
+        self.res_cons_err_notransp = None
+
         return
 
     def get_hybrid_figure(self, grid, cons, cons_std, interp_grid):
@@ -107,7 +116,7 @@ class Lecture:
             notrans = 0
             notrans_std = 0
 
-        fig = plt.figure(figsize=[7.5, 4.8])
+        fig = plt.figure(figsize=[6.4, 4.8])
         p = max(grid)
 
         def online(x):
@@ -175,7 +184,7 @@ class Lecture:
                     )
 
         # Put a legend to the right of the current axis
-        plt.gca().legend(loc="center left", bbox_to_anchor=(1.05, 0.3))
+        fig.legend(loc="upper center", ncol=2, bbox_to_anchor=(0.5, 0))
 
         if "logplot" in self.options:
             plt.ylabel("log(Consumption per lecture) (kWh)")
@@ -196,52 +205,35 @@ class Lecture:
 
         plt.tight_layout()
 
-        # these are matplotlib.patch.Patch properties
-        props = dict(boxstyle="round", alpha=0.5)
-
+        # Set values for result cards
+        self.min_stud_online = grid[minind]
+        self.min_stud_offline = max(grid) - grid[minind]
+        self.res_cons = min_cons
+        self.res_cons_err = min_std
         if "notransport" in self.options:
             min_ind_nt = np.where(notrans == min(notrans))
             min_cons_nt = notrans[min_ind_nt]
             min_std_nt = np.sqrt(notrans_std[min_ind_nt])
-            textstr = "Optimal mode:\n- %d students online\n- %d students on-site\n- Total consumption: %.2f $\pm$ %.2f$\,$kWh\n\n" % (
-                grid[minind],
-                max(grid) - grid[minind],
-                min_cons,
-                min_std,
-            ) + "Without transportation:\n- %d students online\n- %d students on-site\n- Consumption: %.2f $\pm$ %.2f$\,$kWh" % (
-                grid[min_ind_nt],
-                max(grid) - grid[min_ind_nt],
-                min_cons_nt,
-                min_std_nt,
-            )
-        else:
-            textstr = (
-                "Optimal mode:\n- %d students online\n- %d students on-site\n- Total consumption: %.2f $\pm$ %.2f$\,$kWh"
-                % (grid[minind], max(grid) - grid[minind], min_cons, min_std)
-            )
-
-        # place a text box in upper left in axes coords
-        txt = plt.gca().text(
-            1.05,
-            1.15,
-            textstr,
-            transform=plt.gca().transAxes,
-            fontsize=14,
-            verticalalignment="top",
-            bbox=props,
-        )
+            self.min_stud_online_notransp = grid[min_ind_nt]
+            self.min_stud_offline_notransp = max(grid) - grid[min_ind_nt]
+            self.res_cons_notransp = min_cons_nt
+            self.res_cons_err_notransp = min_std_nt
 
         imgdata = io.StringIO()
         fig.savefig(
             imgdata,
             format="svg",
             bbox_inches="tight",
-            bbox_extra_artists=(txt,),
             dpi=600,
         )
         imgdata.seek(0)
 
         data = imgdata.getvalue()
+        
+        # TODO Remove hardcoded string in favour for regex
+        data = data.replace('width="452.799029pt"', 'width="100%"')
+        data = data.replace('height="415.189062pt"', 'height="100%"')
+
         return data
 
     def get_random_living_consumption(
@@ -447,8 +439,6 @@ class Lecture:
 
         if mode == "online-streaming" or mode == "online-vod":
             # Calculation of the consumption for an online lecture
-            # TODO Make sure that the calculation makes sense
-
             # Streaming service
             if mode == "online-streaming":
                 if self.streaming is None:
@@ -524,6 +514,12 @@ class Lecture:
             self.contribs_std["Devices"].append(s)
             consumption += c
             stat_uncertainty += s**2
+
+            self.res_cons = consumption
+            self.res_cons_err = np.sqrt(stat_uncertainty)
+
+            self.res_cons_notransp = consumption - self.contribs["Transportation"][0]
+            self.res_cons_err_notransp = np.sqrt(stat_uncertainty - self.contribs_std["Transportation"][0] ** 2)
 
             return consumption, np.sqrt(stat_uncertainty)
 
@@ -614,6 +610,12 @@ class Lecture:
             stat_uncertainty += s**2
 
             self.num_stud = num_stud_bak
+
+            self.res_cons = consumption
+            self.res_cons_err = np.sqrt(stat_uncertainty)
+
+            self.res_cons_notransp = consumption - self.contribs["Transportation"][0]
+            self.res_cons_err_notransp = np.sqrt(stat_uncertainty - self.contribs_std["Transportation"][0] ** 2)
 
             return consumption, np.sqrt(stat_uncertainty)
 
@@ -708,10 +710,6 @@ class Lecture:
 
             # Reset number of studenst
             self.num_stud = num_stud_bak
-
-            # Find optimal hybrid fraction
-            cons = np.array(cons)
-            cons_std = np.array(cons_std)
 
             # Interpolate consumption values
             x = np.arange(self.num_stud + 1)
