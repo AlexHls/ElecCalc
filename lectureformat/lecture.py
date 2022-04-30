@@ -1,5 +1,6 @@
 import warnings
 import io
+import re
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -230,9 +231,10 @@ class Lecture:
 
         data = imgdata.getvalue()
 
-        # TODO Remove hardcoded string in favour for regex
-        data = data.replace('width="452.799029pt"', 'width="100%"')
-        data = data.replace('height="415.189062pt"', 'height="100%"')
+        width = re.findall(r'width="' + r'\d*\.?\d+pt"', data)
+        data = data.replace(width[0], 'width="100%"')
+        height = re.findall(r'height="' + r'\d*\.?\d+pt"', data)
+        data = data.replace(height[0], 'height="100%"')
 
         return data
 
