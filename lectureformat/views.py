@@ -21,26 +21,32 @@ from .models import *
 
 # Create your views here.
 def home(request):
-    return render(request, "home.html") 
+    return render(request, "home.html")
+
 
 def about(request):
-    return render(request, "about.html")  
+    return render(request, "about.html")
+
 
 def team(request):
-    return render(request, "team.html")  
+    return render(request, "team.html")
+
 
 def rechtshinweise(request):
-    return render(request, "rechtshinweise.html")   
+    return render(request, "rechtshinweise.html")
+
 
 def legalnotice(request):
-    return render(request, "legalnotice.html")   
+    return render(request, "legalnotice.html")
+
 
 def datenschutz(request):
-    return render(request, "datenschutz.html")   
+    return render(request, "datenschutz.html")
 
 
 def privacy(request):
-    return render(request, "privacy.html")   
+    return render(request, "privacy.html")
+
 
 def no404(request):
     return render(request, "no404.html")
@@ -263,24 +269,28 @@ def calculator_result(request):
         options=opts,
     )
 
-    lecture.get_consumption(
-        float(time), mode, sampling.lower()
-    )
+    lecture.get_consumption(float(time), mode, sampling.lower())
 
     if "hybrid" in mode:
         context["consumption"] = np.around(lecture.res_cons, 1)[0]
         context["stat_uncertainty"] = np.around(lecture.res_cons_err, 1)[0]
         if "notransport" in context["options"]:
             context["consumption_notransp"] = np.around(lecture.res_cons_notransp, 1)[0]
-            context["stat_uncertainty_notransp"] = np.around(lecture.res_cons_err_notransp, 1)[0]
+            context["stat_uncertainty_notransp"] = np.around(
+                lecture.res_cons_err_notransp, 1
+            )[0]
         else:
             context["consumption_notransp"] = np.around(lecture.res_cons_notransp, 1)
-            context["stat_uncertainty_notransp"] = np.around(lecture.res_cons_err_notransp, 1)
+            context["stat_uncertainty_notransp"] = np.around(
+                lecture.res_cons_err_notransp, 1
+            )
     else:
         context["consumption"] = np.around(lecture.res_cons, 1)
         context["stat_uncertainty"] = np.around(lecture.res_cons_err, 1)
         context["consumption_notransp"] = np.around(lecture.res_cons_notransp, 1)
-        context["stat_uncertainty_notransp"] = np.around(lecture.res_cons_err_notransp, 1)
+        context["stat_uncertainty_notransp"] = np.around(
+            lecture.res_cons_err_notransp, 1
+        )
 
     if lecture.figure is not None:
         context["figure"] = lecture.figure

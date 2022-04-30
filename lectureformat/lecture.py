@@ -229,7 +229,7 @@ class Lecture:
         imgdata.seek(0)
 
         data = imgdata.getvalue()
-        
+
         # TODO Remove hardcoded string in favour for regex
         data = data.replace('width="452.799029pt"', 'width="100%"')
         data = data.replace('height="415.189062pt"', 'height="100%"')
@@ -519,7 +519,9 @@ class Lecture:
             self.res_cons_err = np.sqrt(stat_uncertainty)
 
             self.res_cons_notransp = consumption - self.contribs["Transportation"][0]
-            self.res_cons_err_notransp = np.sqrt(stat_uncertainty - self.contribs_std["Transportation"][0] ** 2)
+            self.res_cons_err_notransp = np.sqrt(
+                stat_uncertainty - self.contribs_std["Transportation"][0] ** 2
+            )
 
             return consumption, np.sqrt(stat_uncertainty)
 
@@ -615,7 +617,9 @@ class Lecture:
             self.res_cons_err = np.sqrt(stat_uncertainty)
 
             self.res_cons_notransp = consumption - self.contribs["Transportation"][0]
-            self.res_cons_err_notransp = np.sqrt(stat_uncertainty - self.contribs_std["Transportation"][0] ** 2)
+            self.res_cons_err_notransp = np.sqrt(
+                stat_uncertainty - self.contribs_std["Transportation"][0] ** 2
+            )
 
             return consumption, np.sqrt(stat_uncertainty)
 
