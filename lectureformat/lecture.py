@@ -520,9 +520,9 @@ class Lecture:
             self.res_cons = consumption
             self.res_cons_err = np.sqrt(stat_uncertainty)
 
-            self.res_cons_notransp = consumption - self.contribs["Transportation"][0]
+            self.res_cons_notransp = consumption
             self.res_cons_err_notransp = np.sqrt(
-                stat_uncertainty - self.contribs_std["Transportation"][0] ** 2
+                stat_uncertainty
             )
 
             return consumption, np.sqrt(stat_uncertainty)
