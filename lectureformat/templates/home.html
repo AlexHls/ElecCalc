@@ -23,8 +23,13 @@
             <div><a class="item link" href="team" >team</a></div>
         </div>
         <div>
-          <button href="admin" onclick="location.href='admin';" class="login">log in</button>
           <button href="calculator_home" onclick="location.href='calculator_home';" class="calculate">calculate now</button>
+          {% if user.is_authenticated %}
+            <button style="margin-left: 15px;" href="admin" onclick="location.href='admin';" class="login"> {{ user.username }} </button>
+            <button href="{% url 'logout' %}" onclick="location.href='accounts/logout';" class="login"> log out </button>
+          {% else %} 
+            <button href="accounts/login" onclick="location.href='accounts/login';" class="login">log in</button>
+          {% endif %}
         </div>
       </div> 
       <div class="sidebar">
@@ -116,7 +121,7 @@
     
           <div class="title">Step 1</div>
           <div class="subtitle">Log in or sign up <a class="subtitle" href="admin" style="color: #2C7DA0;">here.</a></div>
-          <div class="note">[This is currently under construction and the user system does not yet work. You can go ahead and skip this step.]</a></div>
+          <div class="note">[To get a user account, contact us (electum(at)ja.tum.de). But don't worry, the calculator works fine even without a user account.]</a></div>
           <div class="note">Log in if you already have an account or sign up <a class="" href="admin"><b>here.</b></a></div>
           <button onclick="location.href='admin'" class="sep transp"><image src="../static/media/home/login.svg"></image></button>
    

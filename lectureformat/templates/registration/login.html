@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css\styles.css" %}"> 
+    <link rel="stylesheet" href="{% static "css\about.css" %}"> 
+    <link rel="stylesheet" href="{% static "css\team.css" %}"> 
+    <link rel="stylesheet" href="{% static "css\calculator.css" %}"> 
+    <link rel="stylesheet" href="{% static "css\privacy.css" %}"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+</head>
+
+      <div class="header" id="nav">
+        <div class="leftmenu">
+          <div class="mainlogo">
+            <a href="/"><image src="../../static/media/home/eleclogo.svg" class="item logo main" ></image></a></div>
+            <div><a class="item link" href="calculator_home">elecCalc</a></div>
+            <div><a class="item link" href="about">about</a></div>
+            <div><a class="item link" href="team" >team</a></div>
+        </div>
+        <div>
+          <button href="calculator_home" onclick="location.href='calculator_home';" class="calculate">calculate now</button>
+          {% if user.is_authenticated %}
+            <button href="admin" onclick="location.href='admin';" class="login"> {{ user.username }} </button>
+            <button href="{% url 'logout' %}" onclick="location.href='accounts/logout';" class="login"> log out </button>
+          {% else %} 
+            <button href="accounts/login" onclick="location.href='accounts/login';" class="login">log in</button>
+          {% endif %}
+        </div>
+      </div>
+
+{% block content %}
+<div id="calculate">
+        <div class="Container">
+            <div class="Card">
+                <div style="display: flex; justify-content: center;">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button class="login" style="margin-left: 15px;" type="submit">log in</button>
+                        <button class="calculate" onclick="history.back()">go back</button>
+                    </form>
+                </div>
+                <div style="display:flex; justify-content: center;">   
+                    <img class="mainimg" src="../../static/media/ecalc/main_calc.png" />
+                </div>
+            </div>
+
+        </div>
+</div>
+{% endblock %}
+
+
+           <div class="wrapper">
+              
+                <div class="cookie-content">
+                  <p>This website uses cookies to ensure you get the best experience.</p>
+                  <div class="buttons">
+                    <button class="item">I understand</button>
+                    <a href="privacy" class="item">Learn more</a>
+                  </div>
+                </div>
+              </div>
+
+              <script>
+                const cookieBox = document.querySelector(".wrapper"),
+                acceptBtn = cookieBox.querySelector("button");
+                acceptBtn.onclick = ()=>{
+                  document.cookie = "Cookie; max-age="+60*60*24*30;
+                  if(document.cookie){
+                    cookieBox.classList.add("hide"); 
+                  }else{ 
+                    alert("Cookie can't be set! Please unblock this site from the cookie setting of your browser.");
+                  }
+                }
+                let checkCookie = document.cookie.indexOf("Cookie");
+                checkCookie != -1 ? cookieBox.classList.add("hide") : cookieBox.classList.remove("hide"); 
+
+                const outsider = document.getElementById('outsider');
+                const distance = 500;
+
+                function scrollLft() {
+                  outsider.scrollBy({
+                    left: -distance,
+                    behavior: 'smooth'
+                  });
+                }
+
+                function scrollRight() {
+                  outsider.scrollBy({
+                    left: distance,
+                    behavior: 'smooth'
+                  });
+                }
+
+                $(function() {
+                    var pgurl = window.location.href.substr(window.location.href
+                .lastIndexOf("/")+1);
+                    $("a").each(function(){
+                          if($(this).attr("href") == pgurl || $(this).attr("href") == '' )
+                          $(this).addClass("active");
+                    })
+                });
+
+              </script>
+
+   
+    <footer>
+      <div class="bottommenu">
+        <a href="/"><image src="../../static/media/home/eleclogo.svg" ></image></a>
+
+      </div>
+      <div class="footerline"></div>
+      <div class="bottommenu">
+        <div class="sep">Legal Notice</div>
+        <a href="rechtshinweise">German</a><span> |</span>
+        <a href="legalnotice"> English</a>
+        <div class="sep">Privacy Policy</div>
+        <a href="datenschutz">German</a><span> |</span>
+        <a href="privacy">English</a>
+        <div class="sep">
+        &copy; 2022 | ElecTUM
+      </div>
+        
+    </footer>
+</body>
+
+
+</html>
+
