@@ -16,8 +16,8 @@
             <form action="calculator_option_selection" method="POST">
                 {% csrf_token %}
             
-                <p>Enter number of students attending lecture: </p><input class="input" type="text" name="num_stud"><br><br>
-                <p>Lecture duration (minutes):</p> <input class="input" type="text" name="time"><br><br>
+                <p>Enter number of students attending lecture: </p><input class="input" type="number" name="num_stud" required value="100" min="2"><br><br>
+                <p>Lecture duration (minutes):</p> <input class="input" type="number" name="time" required value="90" min="15" max="1440"><br><br>
                 {% if faculty_list %}
                     <label for="facultys"><p>Choose a faculty:</p></label>
                     <select id="facultys" name="facultys" class="input">
@@ -32,7 +32,6 @@
                 {% if lecture_hall_list %}
                     <label for="lecture_halls"><p>Choose a lecture hall:</p></label>
                     <select id="lecture_halls" name="lecture_halls" class="input">
-                        <option value="NONE"> None </option>
                         {% for hall in lecture_hall_list %}
                             <option value={{ hall.id }}>{{ hall.hall_name }}</option>
                         {% endfor %}
@@ -44,7 +43,6 @@
                 {% if streaming_list %}
                     <label for="streaming"><p>Choose a streaming service:</p></label>
                     <select id="streaming" name="streaming" class="input">
-                        <option value="NONE"> None </option>
                         {% for streaming in streaming_list %}
                             <option value={{ streaming.id }}>{{ streaming.streaming_name }}</option>
                         {% endfor %}
@@ -56,7 +54,6 @@
                 {% if vod_list %}
                     <label for="vod"><p>Choose a Video-On-Demand service:</p></label>
                     <select id="vod" name="vod" class="input">
-                        <option value="NONE"> None </option>
                         {% for vod in vod_list %}
                             <option value={{ vod.id }}>{{ vod.vod_name }}</option>
                         {% endfor %}
