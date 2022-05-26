@@ -20,8 +20,13 @@
 		<div class="Cinline">
 			<input class="space" type="radio" id="sampling_simple" name="sampling" value="Simple" checked="checked">
 			<label for="sampling_simple">Simple sampling mode</label><br>
+            {% if user.is_authenticated %}
 			<input type="radio" id="sampling_mcmc" name="sampling" value="MCMC">
 			<label for="sampling_mcmc" class="sampling">Advanced MCMC sampling</label>
+            {% else %}
+			<input type="radio" id="sampling_mcmc" name="sampling" value="MCMC" disabled>
+			<label for="sampling_mcmc" class="sampling">Advanced MCMC sampling (only available for registered users)</label>
+            {% endif %}
 		</div>
 
 		<div class="sep">

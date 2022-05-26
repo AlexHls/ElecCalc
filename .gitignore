@@ -2,4 +2,5 @@ eleccalcenv/
 __pycache__
 .idea
 lectureformat/migrations/*
+.vscode
 eleccalc/__pycache__
