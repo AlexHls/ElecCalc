@@ -714,7 +714,12 @@ body {
 /* --------------------------------------Cards */
 
 /* -----------------------------------------Media */
-@media (min-width: 576px) {
+@media (max-width: 540px) {
+  .Container, .Subcontainer, .elecContainer, .PContainer, .tContainer, .Container2, .Container3 {
+    max-width: 328px;
+}
+}
+@media (min-width: 540px) {
   
   .Container, .Subcontainer, .elecContainer, .PContainer, .tContainer, .Container2, .Container3 {
       max-width: 520px;
